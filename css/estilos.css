@@ -1,0 +1,527 @@
+body{ background:#C8D7DC url(../images/fondo.jpg) repeat-x top center; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:12px; margin:0 auto; padding:0; color:#2d3854; }
+a{ text-decoration:none; color:#2d3854;}
+table{ font-size:12px; background: #efecff;}
+
+.clear{ clear:both; }
+
+#pag {width:400px; height: 300px; padding: 0px; margin: 0 auto; }
+#pag div.log {width:450px; height: 350px; padding: 2px; position: relative; margin: 0 auto; margin-top: 30px;  background:   #efecff; }
+#pag div.frm {width:400px; height: 100px; padding: 0; text-align: center; margin: 0 auto; position: relative;}
+#pag div.imp_bit {width:400px; height: 200px; padding: 0; text-align: center; margin: 0 auto; position: relative;}
+#pag div.titulos{width: 150px; height: 20px; margin-bottom: 10px; text-align: left; margin: 0 auto; margin-top: 5px; color: #000000;}
+#pag div.campos{width: 150px; height: 20px; text-align: left; margin: 0 auto; margin-top: 10px; //margin-top: 5px;  border:1px solid #25304c; padding: 0;}
+#pag div.boton{width: 400px; height: 50px; text-align: right; margin: 0 auto; margin-right: 30px; margin-top: 20px; padding: 0;}
+#pag .bot { width: 80px; height: 25px; margin: 0 auto; padding: 0; background:  #cccccc;}
+#pag .bot:hover {width: 80px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+
+
+#contenedor-logo{//background: #ffffff; width: 800px; height: 160px; margin: 0 auto; padding: 0; text-align: center; margin-top: 10px;}
+#contenedor-logo div.logo{background: url(../images/logo.png) no-repeat; width: 330px; height: 120px; margin: 0 auto; margin-top: 20px; padding: 0; text-align: center; position: relative; float: left;}
+#contenedor-logo .button_1{width: 110px; height: 25px; margin-top: 80px; margin: 0 auto; float: right; position: relative; border:1px solid #cccccc}
+#contenedor-logo .button_1:hover{width: 110px; height: 25px; margin-top: 80px; margin: 0 auto; float: right; position: relative; border:1px solid #999999; background:  #000000;}
+#contenedor table{border: 2px; border-style: solid; border-color:  #25304c;}
+#contenedor{width: 1100px; height: 500px; margin: 0 auto; text-align: left; padding: 0;}
+#contenedor .textarea{width: 900px; height: 170px;  border:1px solid #25304c}
+#contenedor .button{ width: 200px; height: 25px; margin: 0 auto; padding: 0; background: #cccccc; }
+#contenedor .button:hover{width: 200px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+#contenedor td.check{border-right-style: none; border-top-style: none; border-bottom-style: none; border-left-style: none; }
+#contenedor td.label{border-left-style: none; border-top-style: none; border-bottom-style: none; border-right-style: none;}
+#contenedor td.label1{border-left-style: none; border-top-style: none; border-bottom-style: none;}
+#contenedor td.label2{border-left-style: none; border-top-style: none; border-bottom-style: none; color: #5387f5;}
+#contenedor td.label3{border-left-style: none; border-top-style: none; border-bottom-style: none; border-right-color: #000000;}
+#contenedor td.label4{border-left-style: none; border-bottom-style: none; border-right-style: none;}
+#contenedor td.check1{border-right-style: none; border-bottom-style: none; border-left-style: none; }
+#contenedor td.label5{border-left-style: none; border-bottom-style: none;}
+
+#contenedor-logo1{//background: #ffffff; width: 800px; height: 50px; margin: 0 auto; padding: 0; text-align: center; margin-top: 10px;}
+#contenedor-logo div.logo1{ width: 230px; height: 20px; margin: 0 auto; margin-top: 20px; padding: 0; text-align: center; position: relative; float: left;}
+
+
+
+#botonera {width: 1060px; height: 40px; text-align: center; margin: 0 auto; padding: 0; margin: 0 auto; margin-top: 10px; margin-bottom: 5px; background:  #efecff; border: solid 1px;}
+#botonera .button{width: 110px; height: 25px; text-align: center; margin: 0 auto; padding: 0; margin-top: 5px; background: #cccccc;}
+#botonera .button:hover{background:  #4a3ff4; width: 110px; height: 25px; text-align: center; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+
+#frm_ind .bot{width: 110px; height: 25px; text-align: center; margin: 0 auto; padding: 0; border: solid 1px;}
+#frm_ind .bot:hover{background:  #4a3ff4; width: 110px; height: 25px; text-align: center; margin: 0 auto; padding: 0; border: solid 1px;}
+#contenido{width:450px; height: 20px; padding: 0px; margin: 0 auto; }
+
+
+
+
+/*-------------------------estilos del listado-----------------------------------------------*/
+#cont_list{width: 1250px; height: 600px; text-align: center; float: left; margin: 0 auto;}
+#bot_list{width:249px; height: 600px; text-align: center; float: left; margin: 0 auto; border: solid 1px; border-color:  #000000;}
+#tabla_list{width:990px; height: 600px; text-align: center; float: left; margin: 0 auto; border: solid 1px; border-color:  #000000;}
+
+
+
+
+/*-------------------------------estilos form inspectores---------------------------------------*/
+
+#contenedor_insp{ width: 900px; height: 1390px; margin: 0 auto; padding: 0; font-size: 10px;}
+#contenedor_insp div.encabezado{ width:900px; //width:910px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_insp div.global{width: 150px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_insp div.titulos{width: 150px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px;}
+#contenedor_insp div.campos{width: 150px; height: 35px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_insp div.sep{width: 900px; height: 5px; margin: 0 auto; padding: 0; float: left;}
+#contenedor_insp div.ubicacion{width:900px;//width:910px; height: 40px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_insp div.global1{width: 390px; height: 40px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-left: 60px;}
+#contenedor_insp div.titulos1{width: 120px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 10px;}
+#contenedor_insp div.campos1{width: 160px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: left; margin-top: 10px;}
+#contenedor_insp div.contenedor2{width:900px;//width:910px; height: 250px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_insp div.contenedor2-1{width:900px;//width:910px; height: 100px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_insp div.datos_acc{width:320px;   height: 250px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_insp div.titulo_datos{width:300px;  height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 5px;}
+#contenedor_insp div.texto_datos{width:150px;height: 20px; margin: 0 auto; padding: 0; float: left; text-align: left; background: #efecff; margin-top: 5px; margin-left: 10px;}
+#contenedor_insp .campo_ins{width:100px;height: 20px; margin: 0 auto; padding: 0; float: left; text-align: left;}
+#contenedor_insp div.campo_datos{width:150px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: left; background: #efecff; margin-top: 5px;}
+#contenedor_insp .fecha{width:40px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_insp .fecha1{width:60px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_insp .n_acc{width:30px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_insp div.tipo_acc{width:580px; //width:560px;   height: 250px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_insp div.titulo_acc{width:580px; //width:560px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 5px;}
+#contenedor_insp div.bloques_acc{width:300px; //width: 300px; height: 180px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_insp div.bloque1_acc{width:300px; //width: 300px; height: 25px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_insp div.texto_tipo{width:150px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 10px;}
+#contenedor_insp div.check_tipo{width:60px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 27;}
+#contenedor_insp div.bloque21{width:580px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_insp .otro_tipo{width:100px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_insp div.otro_tipo{width:100px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 30px; //margin-left: 17px;}
+#contenedor_insp div.contenedor3{width:900px; height: 220px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_insp div.titulo_serv{width:900px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_insp div.bloque2{width:900px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_insp div.texto_serv{width:130px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_insp .acc_otro{width:100px; //width:60px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_insp div.check_serv{width:60px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 30px;}
+#contenedor_insp div.otro_serv{width:130px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px; //margin-left: 27px; }
+#contenedor_insp div.check_serv1{width:40px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 30px;}
+#contenedor_insp div.otro_serv1{width:130px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 35px; //margin-left: 15px; }
+#contenedor_insp div.texto_serv1{width:150px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_insp .serv_otros{width:100px; //width:80px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_insp div.contenedor4{width:900px; height: 90px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_insp div.titulo_cond{width:900px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_insp div.bloque3{width:900px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_insp div.global_cond{width: 150px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_insp div.texto_cond{width:150px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: center;  margin-top: 5px;}
+#contenedor_insp div.campos_cond{width:150px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: center;  margin-top: 5px;}
+#contenedor_insp div.contenedor5{width:900px; //width:910px; height: 250px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_insp div.global_obs{width: 870px; height: 200px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-left: 15px;}
+#contenedor_insp div.titulos_obs{width:870px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 5px;}
+#contenedor_insp .textarea_obs{width: 870px; height: 160px;  border:1px solid #25304c}
+#contenedor_insp div.boton_obs{width:380px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 15px; margin-left: 5px;}
+#contenedor_insp .botones{ width: 150px; height: 25px; margin: 0 auto; padding: 0; margin-top: 10px; margin-left: 10px; float: right; background:  #cccccc; }
+#contenedor_insp .botones:hover{ width: 150px; height: 25px; margin: 0 auto; padding: 0; margin-top: 10px; background: #0033ff; color: #ffffff;  }
+#contenedor_insp div.insp_botonera{width:900px; height: 50px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_insp .sen-class{width: 135px; height: 20px;  border:1px solid #666666 ; font-size: 10px; }
+#contenedor_insp .sen-class1{width: 100px; height: 20px;  border:1px solid #666666 ; font-size: 10px; }
+#contenedor_insp .sen-class2{width: 50px; height: 20px;  border:1px solid #666666 ; font-size: 10px; }
+#contenedor_insp .checks1{width: 10px; height: 10px;  border:1px solid #666666 ;  }
+
+
+/*------------------------------------Estilos del form de ralacion de involucrados--------------------------------------*/
+
+#contenedor_inv {width:900px; height: 150px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-left: 80px; margin-top: 30px;}
+#contenedor_inv div.titulo_inv{width:900px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_inv div.bloque_inv{width: 900px; height: 120px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_inv div.bloque1_inv{width:170px; height: 100px; margin: 0 auto; float: left; margin-left: 10px; }
+#contenedor_inv div.texto_inv{width:170px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left; margin-top: 10px;}
+#contenedor_inv div.campo_inv{width:170px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left;}
+#contenedor_inv .selects{width:150px; //width:150px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_inv div.tabla_inv{width:900px; height: 150px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_inv .botones{ width: 80px; height: 25px; margin: 0 auto; padding: 0; background:  #cccccc;  }
+#contenedor_inv .botones:hover{ width: 80px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;  }
+#contenedor_inv .sen-class{width: 150px; height: 20px;  border:1px solid #666666 ; }
+
+
+
+/*------------------------------------Estilos del form de ralacion de victimas--------------------------------------*/
+#frmins3 {width:800px; height: 160px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-left: 90px; margin-top: 30px;}
+#contenedor_vic {width:800px; height: 160px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-left: 10px;}
+#contenedor_vic div.titulo_inv{width:800px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_vic div.bloque_inv{width: 800px; height: 120px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_vic div.bloque1_inv{width:180px; height: 110px; margin: 0 auto; float: left; margin-left: 10px; }
+#contenedor_vic div.texto_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left; margin-top: 10px;}
+#contenedor_vic div.campo_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left;}
+#contenedor_vic .selects{width:140px; //width:150px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_vic div.tabla_inv{width:800px; height: 150px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_vic .botones{ width: 80px; height: 25px; margin: 0 auto; padding: 0; background:  #cccccc;  }
+#contenedor_vic .botones:hover{ width: 80px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;  }
+#contenedor_vic .sen-class{width: 150px; height: 20px;  border:1px solid #666666 ; }
+
+/*------------------------------------Estilos del form menu inspectores-------------------------------------------------*/
+
+#cont_menu{ width: 800px;  height: 250px; margin: 0 auto; padding: 0; //background:#efecff; }
+#contenedor-logo1{//background: #ffffff; width: 800px; height: 160px; margin: 0 auto; padding: 0; text-align: center; margin-top: 10px;}
+#contenedor-logo1 div.logo1{background: url(../images/logo.png) no-repeat; width: 330px; height: 120px; margin: 0 auto; margin-top: 20px; padding: 0; text-align: center; position: relative; float: left;}
+#contenedor-logo1 div.botonera_superior{width: 460px; height: 120px; text-align: right; float: left; padding: 0; margin: 0 auto;}
+#cont_menu2{ width: 800px; height: 250px; margin: 0 auto; padding: 0; margin-top: 10px; }
+#cont_menu div.tabla_me{ width: 800px; height: 500px; margin: 0 auto; padding: 0; margin-top: 10px; background: #ff0000 }
+#cont_menu div.sep{ width: 800px; height: 10px; margin: 0 auto; padding: 0; margin-top: 10px; }
+#cont_menu .botones{ width: 85px; height: 25px; margin: 0 auto; padding: 0; margin-top: 10px; background:  #cccccc;  }
+#cont_menu .botones:hover{ width: 85px; height: 25px; margin: 0 auto; padding: 0; margin-top: 10px; background:  #0033ff; color: #ffffff; }
+#cont_menu .botones1{ width: 100px; height: 25px; margin: 0 auto; padding: 0; margin-top: 10px; background:  #cccccc;  }
+#cont_menu .botones1:hover{ width: 100px; height: 25px; margin: 0 auto; padding: 0; margin-top: 10px; background:  #0033ff; color: #ffffff; }
+
+
+/*---------------------------------------Estilo del form de incidentes y form emergencias------------------------------------------------*/
+
+#contenedor_us_inc{ width: 800px; height: 900px; margin: 0 auto; padding: 0; }
+#contenedor_us_inc div.encabezado{ width:800px; //width:810 px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_us_inc div.encabezado2{ width:800px; //width:810 px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_us_inc div.cie_horas{ width:800px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_inc div.titulo_cie{width:200px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_inc div.campos_cie{width:150px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_inc div.global{width: 150px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_inc div.titulos{width: 150px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px;}
+#contenedor_us_inc div.campos{width: 150px; height: 35px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_inc div.cont_us_inc {width:800px; height: 150px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_inc div.titulo_inv{width:800px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_inc div.bloque_inv{width: 800px; height: 120px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_inc div.bloque1_inv{width:180px; height: 110px; margin: 0 auto; float: left; margin-left: 10px; }
+#contenedor_us_inc div.texto_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left; margin-top: 10px;}
+#contenedor_us_inc div.campo_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left;}
+#contenedor_us_inc .selects{width:150px; //width:150px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_us_inc div.tabla_inv{width:800px; height: 150px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_us_inc div.desc {width:800px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_inc div.desc2 {width:800px; height: 220px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_inc div.bloque2 {width:800px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px; }
+#contenedor_us_inc div.texto_inc{width:180px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_us_inc div.check_inc{width:110px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_insp div.otro_inc{width:130px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px; //margin-left: 27px; }
+#contenedor_us_inc div.desc1 {width:800px; height: 190px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_inc .textare_inc{width: 750px; height: 110px;  border:1px solid #25304c; margin-top: 5px;}
+#contenedor_us_inc div.boton_inc{width:700px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: right; margin-top: 10px;}
+#contenedor_us_inc .bot { width: 150px; height: 25px; margin: 0 auto; padding: 0; background:  #cccccc;}
+#contenedor_us_inc .bot:hover {width: 150px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+#contenedor_us_inc .sen-class{width: 135px; height: 20px;  border:1px solid #666666 ; font-size: 10px;  }
+#contenedor_us_inc .sen-class1{width: 160px; height: 20px;  border:1px solid #666666 ; font-size: 10px;  }
+#contenedor_us_inc .sen-class2{width: 260px; height: 20px;  border:1px solid #666666 ; font-size: 10px;  }
+#contenedor_us_inc .checks1{width: 10px; height: 10px;  border:1px solid #666666 ; }
+
+
+/*---------------------------------------Estilo del form otros------------------------------------------------*/
+#contenedor_otros_ins{ width: 800px; height: 420px; margin: 0 auto; padding: 0; }
+#contenedor_otros_ins div.encabezado{ width:800px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_otros_ins div.encabezado2{ width:800px; //width:810 px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_otros_ins div.cie_horas{ width:800px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_otros_ins div.titulo_cie{width:200px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_otros_ins div.campos_cie{width:150px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_otros_ins div.global{width: 150px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_otros_ins div.titulos{width: 150px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px;}
+#contenedor_otros_ins div.campos{width: 150px; height: 35px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_otros_ins div.texto_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left; margin-top: 10px;}
+#contenedor_otros_ins div.campo_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left;}
+#contenedor_otros_ins .selects{width:150px; //width:150px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_otros_ins div.tabla_inv{width:800px; height: 150px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_otros_ins div.desc {width:800px; height: 185px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_otros_ins .text_otros_des{width: 750px; height: 110px;  border:1px solid #25304c; margin-top: 5px;}
+#contenedor_otros_ins div.boton_otros{width:700px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: right; margin-top: 10px;}
+#contenedor_otros_ins div.titulo_otr{width:800px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_otros_ins .bot { width: 150px; height: 25px; margin: 0 auto; padding: 0; background:  #cccccc;}
+#contenedor_otros_ins .bot:hover {width: 150px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+#contenedor_otros_ins .sen-class{width: 135px; height: 20px;  border:1px solid #666666 ; }
+#contenedor_otros_ins .sen-class1{width: 160px; height: 20px;  border:1px solid #666666 ; }
+
+/*---------------------------------------Estilo del form cierre de via------------------------------------------------------*/
+#contenedor_cierre{ width: 800px; height: 870px; margin: 0 auto; padding: 0;}
+#contenedor_cierre div.encabezado1{ width:800px; height: 40px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_cierre div.encabezado{ width:800px; height: 100px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_cierre div.cie_horas{ width:800px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 10px;}
+#contenedor_cierre div.titulo_cie{width:200px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_cierre div.campos_cie{width:150px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_cierre div.texto_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left; margin-top: 10px;}
+#contenedor_cierre div.campo_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left;}
+#contenedor_cierre div.titulo_asis_ci{width:800px; //width:789px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_cierre .selects{width:150px; //width:150px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_cierre div.desc {width:800px;  //width:789px; height: 320px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_cierre div.bloque2 {width:800px;//width:789px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px; }
+#contenedor_cierre div.texto_inc{width:180px; height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_cierre div.check_inc{width:110px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_cierre div.otro_inc{width:130px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px; //margin-left: 27px; }
+#contenedor_cierre div.desc1 {width:800px; height: 190px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_cierre .textare_inc{width: 750px; height: 110px;  border:1px solid #25304c; margin-top: 5px;}
+#contenedor_cierre div.boton_inc{width:700px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: right; margin-top: 10px;}
+#contenedor_cierre .bot { width: 150px; height: 25px; margin: 0 auto; padding: 0; background:  #cccccc;}
+#contenedor_cierre .bot:hover {width: 150px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+#contenedor_cierre .sen-class{width: 135px; height: 20px;  border:1px solid #666666 ; }
+#contenedor_cierre .sen-class1{width: 160px; height: 20px;  border:1px solid #666666 ; }
+#contenedor_cierre .checks1{width: 10px; height: 10px;  border:1px solid #666666 ; }
+
+/*---------------------------------------Estilo del form de ambulancia------------------------------------------------*/
+
+#contenedor_us_amb{ width: 800px; height: 1650px; margin: 0 auto; padding: 0; }
+#contenedor_us_amb div.encabezado{ width:800px; //width:810 px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_us_amb div.encabezado2{ width:800px; //width:810 px; height: 140px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_us_amb div.cie_horas{ width:800px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_amb div.titulo_cie{width:180px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_amb div.campos_cie{width:180px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_amb div.global{width: 150px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_amb div.titulos{width: 150px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px;}
+#contenedor_us_amb div.campos{width: 150px; height: 35px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_amb div.cont_us_inc {width:800px; height: 170px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_amb div.titulo_inv{width:800px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_amb div.titulo_inv1{width:380px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_amb div.bloque_inv{width: 800px; height: 130px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_amb div.bloque1_inv{width:180px; height: 110px; margin: 0 auto; float: left; margin-left: 10px; }
+#contenedor_us_amb div.texto_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left; margin-top: 10px;}
+#contenedor_us_amb div.campo_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left;}
+#contenedor_us_amb .selects{width:150px; //width:150px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_us_amb div.tabla_inv{width:800px; height: 150px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_us_amb div.desc {width:800px; height: 180px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_amb div.causa {width:800px; height: 80px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_amb div.desc12 {width:800px; height: 310px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_amb div.trasl {width:800px; height: 210px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_amb div.bloque2 {width:800px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px; }
+#contenedor_us_amb div.texto_inc{width:180px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_us_amb div.texto_tras{width:240px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_us_amb div.check_tras{width:40px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_us_amb div.check_inc{width:100px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_us_amb div.desc1 {width:800px; height: 150px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_amb .textare_inc{width: 750px; height: 110px;  border:1px solid #25304c; margin-top: 5px;}
+#contenedor_us_amb div.boton_inc{width:700px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: right; margin-top: 10px;}
+#contenedor_us_amb .bot { width: 150px; height: 25px; margin: 0 auto; padding: 0; background:  #cccccc;}
+#contenedor_us_amb .bot:hover {width: 150px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+#contenedor_us_amb .sen-class{width: 135px; height: 20px;  border:1px solid #666666 ; }
+#contenedor_us_amb .sen-class1{width: 160px; height: 20px;  border:1px solid #666666 ;  }
+#contenedor_us_amb .cam_causa{width: 200px; height: 20px;  border:1px solid #666666 ; }
+#contenedor_us_amb .checks1{width: 10px; height: 10px;  border:1px solid #666666 ; }
+
+
+#contenedor_us_amb1{ width: 800px; height: 2190px; margin: 0 auto; padding: 0; }
+#contenedor_us_amb1 div.encabezado{ width:800px; //width:810 px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_us_amb1 div.encabezado2{ width:800px; //width:810 px; height: 125px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_us_amb1 div.cie_horas{ width:800px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_amb1 div.titulo_cie{width:180px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_amb1 div.campos_cie{width:180px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_amb1 div.global{width: 150px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_amb1 div.titulos{width: 150px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px;}
+#contenedor_us_amb1 div.campos{width: 150px; height: 35px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_amb1 div.cont_us_inc {width:800px; height: 135px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_amb1 div.titulo_inv{width:800px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_amb1 div.titulo_inv1{width:380px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_amb1 div.bloque_inv{width: 800px; height: 130px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_amb1 div.bloque1_inv{width:180px; height: 110px; margin: 0 auto; float: left; margin-left: 10px; }
+#contenedor_us_amb1 div.texto_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left; margin-top: 10px;}
+#contenedor_us_amb1 div.campo_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left;}
+#contenedor_us_amb1 .selects{width:150px; //width:150px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_us_amb1 div.texto_tras{width:240px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_us_amb1 div.trasl {width:800px; height: 210px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_amb1 div.check_tras{width:40px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_us_amb1 div.tabla_inv{width:800px; height: 150px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_us_amb1 div.desc {width:800px; height: 160px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_amb1 div.desc12 {width:800px; height: 310px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_amb1 div.bloque2 {width:800px; height: 28px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px; }
+#contenedor_us_amb1 div.texto_inc{width:180px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_us_amb1 div.check_inc{width:100px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_us_amb1 div.desc1 {width:800px; height: 150px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_amb1 .textare_inc{width: 750px; height: 110px;  border:1px solid #25304c; margin-top: 5px;}
+#contenedor_us_amb1 div.boton_inc{width:700px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: right; margin-top: 10px;}
+#contenedor_us_amb1 .bot { width: 150px; height: 25px; margin: 0 auto; padding: 0; background:  #cccccc;}
+#contenedor_us_amb1 .bot:hover {width: 150px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+#contenedor_us_amb1 .sen-class{width: 135px; height: 20px;  border:1px solid #666666 ; font-size: 10px;  }
+#contenedor_us_amb1 .sen-class1{width: 160px; height: 20px;  border:1px solid #666666 ; font-size: 10px;  }
+#contenedor_us_amb1 .checks1{width: 10px; height: 10px;  border:1px solid #666666 ; }
+#contenedor_us_amb1 div.causa {width:800px; height: 80px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+
+
+
+
+#campo_inv{width:800px; height: 20px; margin: 0 auto; padding: 0;  text-align: right; float: left; padding-bottom: 10px; margin-left: 290px;}
+#campo_inv .bot { width: 150px; height: 25px; margin: 0 auto; padding: 0; background:  #cccccc;}
+#campo_inv .bot:hover {width: 150px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+
+
+/*---------------------------------------Estilo del form de Gruas---------------------------------------------------*/
+
+#contenedor_us_grua{ width: 800px; height: 1000px; margin: 0 auto; padding: 0; }
+#contenedor_us_grua div.encabezado{ width:800px; //width:810 px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_us_grua div.encabezado2{ width:800px; //width:810 px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_us_grua div.cie_horas{ width:800px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_grua div.titulo_cie{width:200px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_grua div.campos_cie{width:150px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_grua div.titulo_horas{width:120px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px; //margin-left: 2px;}
+#contenedor_us_grua div.campos_horas{width:120px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px; //margin-left: 2px;}
+#contenedor_us_grua div.titulo_horas1{width:110px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px; //margin-left: 8px;}
+#contenedor_us_grua div.titulo_horas2{width:90px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px; //margin-left: 8px;}
+#contenedor_us_grua div.campos_horas1{width:150px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px; //margin-left: 8px;}
+#contenedor_us_grua div.global{width: 150px; height: 70px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_grua div.titulos{width: 150px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px;}
+#contenedor_us_grua div.campos{width: 150px; height: 35px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_grua div.cont_us_inc {width:800px; height: 150px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_grua div.titulo_inv{width:800px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_grua div.titulo_inv1{width:380px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px;}
+#contenedor_us_grua div.bloque_inv{width: 800px; height: 120px; margin: 0 auto; padding: 0; float: left; text-align: center;}
+#contenedor_us_grua div.bloque1_inv{width:180px; height: 110px; margin: 0 auto; float: left; margin-left: 10px; }
+#contenedor_us_grua div.texto_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left; margin-top: 10px;}
+#contenedor_us_grua div.campo_inv{width:180px; height: 20px; margin: 0 auto; padding: 0;  text-align: center; float: left;}
+#contenedor_us_grua .selects{width:150px; //width:150px; height: 20px; margin: 0 auto; padding: 0; text-align: left;}
+#contenedor_us_grua div.tabla_inv{width:800px; height: 150px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff;}
+#contenedor_us_grua div.desc {width:800px; height: 80px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_grua div.bloque2 {width:800px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; margin-top: 5px; margin-left: 10px; }
+#contenedor_us_grua div.texto_inc{width:180px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_us_grua div.check_inc{width:110px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px;}
+#contenedor_us_grua div.check_inc3{width:110px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px; //margin-left: 10px;}
+#contenedor_us_grua div.check_inc4{width:110px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px; //margin-left: 20px;}
+#contenedor_us_grua div.check_inc1{width:80px; //width: 60px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 20px;}
+#contenedor_us_grua div.texto_inc1{width:200px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 30px;}
+#contenedor_us_grua div.texto_inc2{width:120px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 120px;}
+#contenedor_us_grua div.otro_inc{width:130px;  height: 20px; margin: 0 auto; padding: 0; float: left;  text-align: left;  margin-top: 5px; margin-left: 50px; //margin-left: 27px; }
+#contenedor_us_grua div.desc1 {width:800px; height: 250px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-top: 10px;}
+#contenedor_us_grua .textare_inc{width: 750px; height: 110px;  border:1px solid #25304c; margin-top: 5px;}
+#contenedor_us_grua div.boton_inc{width:700px; height: 20px; margin: 0 auto; padding: 0; float: left; text-align: right; margin-top: 10px;}
+#contenedor_us_grua .bot { width: 150px; height: 25px; margin: 0 auto; padding: 0; background:  #cccccc;}
+#contenedor_us_grua .bot:hover {width: 150px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+#contenedor_us_grua .sen-class{width: 135px; height: 20px;  border:1px solid #666666 ; }
+#contenedor_us_grua .sen-class1{width: 100px; height: 20px;  border:1px solid #666666 ; }
+#contenedor_us_grua .checks1{width: 10px; height: 10px;  border:1px solid #666666 ; }
+
+
+
+/*------------------------------------------------estilo form ver----------------------------------------------------*/
+#ver {width:400px; height: 280px; padding: 0px; margin: 0 auto; }
+#ver div.log {width:450px; height: 280px; padding: 2px; position: relative; margin: 0 auto; margin-top: 30px;  background:   #efecff; }
+#ver div.frm {width:400px; height: 100px; padding: 0; text-align: center; margin: 0 auto; position: relative;}
+#ver div.ver_parte {width:400px; height: 200px; padding: 0; text-align: center; margin: 0 auto; position: relative;}
+#ver div.titulos{width: 180px; height: 20px; text-align: left; margin: 0 auto; margin-top: 20px; color: #000000;}
+#ver div.campos{width: 180px; height: 20px; text-align: left; margin: 0 auto; margin-top: 20px;  border:1px solid #25304c; padding: 0;}
+#ver div.boton{width: 200px; height: 50px; text-align: right; margin: 0 auto; margin-right: 30px; margin-top: 20px; padding: 0;}
+#ver .bot { width: 80px; height: 25px; margin: 0 auto; padding: 0; background: #cccccc;}
+#ver .campo_ver { width: 180px; height: 25px; margin: 0 auto; padding: 0;}
+#ver .bot:hover {width: 80px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+
+
+/*------------------------------------------------estilo form upfotos----------------------------------------------------*/
+#up {width:500px; height: auto; padding: 0px; margin: 0 auto; }
+#up div.log {width:500px; height: auto; padding: 2px; position: relative; margin: 0 auto; margin-top: 30px;  background:   #efecff; }
+#up div.frm {width:500px; height: 100px; padding: 0; text-align: center; margin: 0 auto; position: relative;}
+#up div.ver_parte {width:500px; height: 200px; padding: 0; text-align: center; margin: 0 auto; position: relative;}
+#up div.titulos{width: 500px; height: 20px; text-align: center; margin: 0 auto; margin-top: 20px; color: #000000;}
+#up div.campos{width: 500px; height: 20px; text-align: center; margin: 0 auto; margin-top: 10px;  padding: 0;}
+#up div.boton{width: 350px; height: 50px; text-align: right; margin: 0 auto; margin-right: 30px; margin-top: 20px; padding: 0;}
+#up .bot { width: 100px; height: 25px; margin: 0 auto; padding: 0; background: #cccccc;}
+
+
+#up .bot:hover {width: 100px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+
+
+
+/*------------------------------------------------estilo form partes----------------------------------------------------*/
+#selec_ver {width:650px; height: 280px; padding: 0px; margin: 0 auto; }
+#selec_ver div.log {width:650px; height: 280px; padding: 2px; position: relative; margin: 0 auto; margin-top: 30px;  background:   #efecff; }
+#selec_ver div.frm {width:420px; height: 100px; padding: 0; text-align: center; margin: 0 auto; position: relative;}
+#selec_ver div.ver_parte {width:650px; height: 200px; padding: 0; text-align: center; margin: 0 auto; position: relative;}
+#selec_ver div.titulos{width: 180px; height: 20px; text-align: left; margin: 0 auto; margin-top: 20px; color: #000000;}
+#selec_ver div.boton{width: 650px; height: 50px; text-align: center; margin: 0 auto; margin-right: 30px; margin-top: 15px; padding: 0;}
+#selec_ver .bot { width: 100px; height: 25px; margin: 0 auto; padding: 0; background:  #cccccc;}
+#selec_ver .campo_ver { width: 180px; height: 25px; margin: 0 auto; padding: 0;}
+#selec_ver .bot:hover {width: 100px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+
+/*--------------------------------------------------estilos form informes---------------------------------------------------*/
+#informes {width:600px; height: 350px; padding: 0px; margin: 0 auto; }
+#informes div.frm {width:400px; height: 100px; padding: 0; text-align: center; margin: 0 auto; position: relative;}
+#informes div.ver_parte {width:600px; height: 200px; padding: 0; text-align: center; margin: 0 auto; position: relative;}
+#informes div.titulos{width: 180px; height: 20px; text-align: left; margin: 0 auto; margin-top: 20px; color: #000000;}
+#informes div.campos{width: 180px; height: 20px; text-align: left; margin: 0 auto; margin-top: 20px;  border:1px solid #25304c; padding: 0;}
+#informes .bot { width: 100px; height: 25px; margin: 0 auto; padding: 0; background: #cccccc;}
+#informes .bot:hover {width: 100px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+#informes div.log {width:650px; height:350px; padding: 2px; position: relative; margin: 0 auto; margin-top: 30px;  background:   #efecff; }
+#informes div.boton{width: 600px; height: 30px; text-align: right; margin: 0 auto; margin-right: 30px; margin-top: 15px; padding: 0;}
+#informes div.boton1{width: 600px; height: 30px; text-align: center; margin: 0 auto; margin-right: 30px; margin-top: 10px; padding: 0;}
+
+
+/*---------------------------------------------------Botones de los informes-----------------------------------------------*/
+#bot{ width: 200px; height: 25px; margin: 0 auto; padding: 0; background: #cccccc;}
+#bot:hover {width: 200px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+
+#bot1{ width: 220px; height: 25px; margin: 0 auto; padding: 0; background: #cccccc;}
+#bot1:hover {width: 220px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+
+
+/*---------------------------------------------------Plantilla fotos-----------------------------------------------*/
+body { text-align: center;}
+#con_img{ width: 800px; height: auto; margin: 0 auto 0 auto; text-align: center; padding: 0;}
+#con_img div.boton{ width: 800px; height: 20px; margin: 0 auto 0 auto; text-align: center; padding: 0; margin-top: 20px;}
+#con_img div.fotos{ width: 800px; height: auto; margin: 0 auto 0 auto; text-align: center; padding: 0;}
+#con_img .bot{ width: 200px; height: 25px; margin: 0 auto; padding: 0; background: #cccccc;}
+#con_img .bot:hover {width: 200px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+#con_img div.datos{width: 500px; height: 30px; text-align: center; margin: 0 auto; margin-top: 60px;}
+
+/*---------------------------------------------------Plantilla Involucrados modificacion-----------------------------------------------*/
+#botonera_inv {width:900px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-left: 80px; margin-top: 30px;}
+#botonera_inv .bot{width: 120px; height: 25px; margin: 0 auto; padding: 0; background: #cccccc;}
+#botonera_inv .bot:hover{width: 120px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+
+/*---------------------------------------------------Plantilla Victimas modificacion-----------------------------------------------*/
+#botonera_vic {width:800px; height: 30px; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-left: 10px; margin-top: 30px;}
+#botonera_vic .bot{width: 120px; height: 25px; margin: 0 auto; padding: 0; background: #cccccc;}
+#botonera_vic .bot:hover{width: 120px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+
+
+
+
+#contpag {width: 800px; height: auto; margin: 0 auto; padding: 0; float: left; text-align: center; background: #efecff; margin-left: 250px; }
+#contpag .bot{ width: 100px; height: 25px; margin: 0 auto; padding: 0; background: #cccccc;}
+#contpag .bot:hover {width: 100px; height: 25px; margin: 0 auto; padding: 0; background: #0033ff; color: #ffffff;}
+
+/* estilo para el slider */
+/*preload classes*/
+.svw {width: 50px; height: 20px; background: #fff  ;}
+.svw ul {position: relative; left: -999em;}
+
+/*core classes*/
+.stripViewer { 
+position: relative;
+overflow: hidden; 
+border: 5px solid #ff0000  ;  
+margin: 0 0 1px 0;
+}
+.stripViewer ul { /* this is your UL of images */
+margin: 0;
+padding: 0;
+position: relative;
+left: 0;
+top: 0;
+width: 1%;
+list-style-type: none;
+}
+.stripViewer ul li { 
+float:left;
+}
+.stripTransmitter {
+overflow: auto;
+width: 1%;
+}
+.stripTransmitter ul {
+margin: 0;
+padding: 0;
+position: relative;
+list-style-type: none;
+}
+.stripTransmitter ul li{
+width: 20px;
+float:left;
+margin: 0 1px 1px 0;
+}
+.stripTransmitter a{
+font: bold 10px Verdana, Arial;
+text-align: center;
+line-height: 22px;
+background: #ff0000  ;
+color: #fff  ;
+text-decoration: none;
+display: block;
+}
+.stripTransmitter a:hover, a.current{
+background: #fff  ;
+color: #ff0000  ;
+}
+
+/*tooltips formatting*/
+.tooltip
+{
+padding: 0.5em;
+background: #fff  ;
+color: #000  ;
+border: 5px solid #dedede  ;
+}
