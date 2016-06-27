@@ -19,6 +19,49 @@ function Desconectarse(){
     return $des;
 }
 
+function formatear_fecha($fecha){
+        //Si No hay fecha, devuelva vac&iacute;o en vez de 0000-00-00
+        if($fecha == '0000-00-00' || $fecha == '1969-12-31 19:00:00' || !$fecha){
+            return false;
+        }
+        
+        $dia_num = date("j", strtotime($fecha));
+        $dia = date("N", strtotime($fecha));
+        $mes = date("m", strtotime($fecha));
+        $anio_es = date("Y", strtotime($fecha));
+
+        //Nombres de los d&iacute;as
+        if($dia == "1"){ $dia_es = "Lunes"; }
+        if($dia == "2"){ $dia_es = "Martes"; }
+        if($dia == "3"){ $dia_es = "Miercoles"; }
+        if($dia == "4"){ $dia_es = "Jueves"; }
+        if($dia == "5"){ $dia_es = "Viernes"; }
+        if($dia == "6"){ $dia_es = "Sabado"; }
+        if($dia == "7"){ $dia_es = "Domingo"; }
+
+        //Nombres de los meses
+        if($mes == "1"){ $mes_es = "enero"; }
+        if($mes == "2"){ $mes_es = "febrero"; }
+        if($mes == "3"){ $mes_es = "marzo"; }
+        if($mes == "4"){ $mes_es = "abril"; }
+        if($mes == "5"){ $mes_es = "mayo"; }
+        if($mes == "6"){ $mes_es = "junio"; }
+        if($mes == "7"){ $mes_es = "julio"; }
+        if($mes == "8"){ $mes_es = "agosto"; }
+        if($mes == "9"){ $mes_es = "septiembre"; }
+        if($mes == "10"){ $mes_es = "octubre"; }
+        if($mes == "11"){ $mes_es = "noviembre"; }
+        if($mes == "12"){ $mes_es = "diciembre"; } 
+
+        //a&ntilde;o
+        //$anio_es = $anio_es;
+
+        //Se foramtea la fecha
+        $fecha = /*$dia_es." ".*/$dia_num." de ".$mes_es." de ".$anio_es;
+        
+        return $fecha;
+    }//Fin formato_fecha()
+
 function guardar(){
     $tabla=tbl_bitacora;
     $fechahora="$_POST[fecha]";
@@ -146,6 +189,129 @@ function otros_incompleto($id_parte,$link){
     }
     return false;
 }
+
+/*----------------------------Consulta Numero de Involucrados----------------------------------------*/
+function numero_involucrados($id_parte){
+    $invol="select count(id_parte) from tbl_involucrados where id_parte={$id_parte}";
+    $res=  mysql_query($invol,Conectarse());
+    $rowinv=  mysql_fetch_array($res);
+    return $rowinv["0"];
+}
+
+/*----------------------------Consuta Numero de Heridos-----------------------------------------------*/
+function numero_heridos($id_parte){
+    $vic="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='herido'";
+    $res1= mysql_query($vic,Conectarse());
+    $rowvic= mysql_fetch_array($res1);
+    return $rowvic["0"];
+}
+
+/*----------------------------Consulta Numero de victimas----------------------------------------------*/
+function numero_victimas($id_parte){
+    $vic2="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='muerto'";
+    $res2= mysql_query($vic2,Conectarse());
+    $rowvic2= mysql_fetch_array($res2);
+    return $rowvic2["0"];
+}
+                     
+/*----------------------------Consulta Numero de heridos moto----------------------------------------------*/
+function numero_heridos_moto($id_parte){
+    $vic3="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='herido' and relacion_vic='motociclista' ";
+    $res3= mysql_query($vic3,Conectarse());
+    $rowvic3= mysql_fetch_array($res3);
+    return $rowvic3["0"];
+}
+
+/*----------------------------Consulta Numero de heridos moto parrillero----------------------------------------------*/
+function numero_heridos_parrillero_moto($id_parte){
+    $vic4="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='herido' and relacion_vic='parrillero' ";
+    $res4= mysql_query($vic4,Conectarse());
+    $rowvic4= mysql_fetch_array($res4);
+    return $rowvic4["0"];
+}
+
+/*----------------------------Consulta Numero de heridos conductor----------------------------------------------*/
+function numero_heridos_conductor($id_parte){
+    $vic5="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='herido' and relacion_vic='conductor' ";
+    $res5= mysql_query($vic5,Conectarse());
+    $rowvic5= mysql_fetch_array($res5);
+    return $rowvic5["0"];
+}
+
+/*----------------------------Consulta Numero de heridos pasajero----------------------------------------------*/
+function numero_heridos_pasajero($id_parte){
+     $vic6="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='herido' and relacion_vic='pasajero' ";
+    $res6= mysql_query($vic6,Conectarse());
+    $rowvic6= mysql_fetch_array($res6);
+    return $rowvic6["0"];
+}
+
+/*----------------------------Consulta Numero de heridos ciclista----------------------------------------------*/
+function numero_heridos_peaton($id_parte){
+    $vic7="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='herido' and relacion_vic='peaton' ";
+    $res7= mysql_query($vic7,Conectarse());
+    $rowvic7= mysql_fetch_array($res7);
+    return $rowvic7["0"];
+}
+
+/*----------------------------Consulta Numero de heridos peaton----------------------------------------------*/
+function numero_heridos_ciclista($id_parte){
+    $vic8="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='herido' and relacion_vic='ciclista' ";
+    $res8= mysql_query($vic8,Conectarse());
+    $rowvic8= mysql_fetch_array($res8);
+    return $rowvic8["0"];
+}
+
+/*----------------------------Consulta Numero de muertos moto----------------------------------------------*/
+function numero_victimas_moto($id_parte){
+    $vic_m1="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='muerto' and relacion_vic='motociclista' ";
+    $resu1= mysql_query($vic_m1,Conectarse());
+    $rowmuer1= mysql_fetch_array($resu1);
+    return $rowmuer1["0"];
+}
+
+/*----------------------------Consulta Numero de muertos moto parrillero----------------------------------------------*/
+function numero_victimas_parrillero_moto($id_parte){
+    $vic_m2="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='muerto' and relacion_vic='parrillero' ";
+    $resu2= mysql_query($vic_m2,Conectarse());
+    $rowmuer2= mysql_fetch_array($resu2);
+    return $rowmuer2["0"];
+}
+
+/*----------------------------Consulta Numero de muertos conductor----------------------------------------------*/
+function numero_victimas_conductor($id_parte){
+    $vic_m3="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='muerto' and relacion_vic='conductor' ";
+    $resu3= mysql_query($vic_m3,Conectarse());
+    $rowmuer3= mysql_fetch_array($resu3);
+    return $rowmuer3["0"];
+}
+
+/*----------------------------Consulta Numero de muertos pasajeros----------------------------------------------*/
+function numero_victimas_pasajero($id_parte){
+    $vic_m4="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='muerto' and relacion_vic='pasajero' ";
+    $resu4= mysql_query($vic_m4,Conectarse());
+    $rowmuer4= mysql_fetch_array($resu4);
+    return $rowmuer4["0"];
+}
+
+/*----------------------------Consulta Numero de muertos peaton----------------------------------------------*/
+function numero_victimas_peaton($id_parte){
+    $vic_m5="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='muerto' and relacion_vic='peaton' ";
+    $resu5= mysql_query($vic_m5,Conectarse());
+    $rowmuer5= mysql_fetch_array($resu5);
+    return $rowmuer5["0"];
+}
+
+/*----------------------------Consulta Numero de muertos ciclista----------------------------------------------*/
+function numero_victimas_ciclista($id_parte){
+    $vic_m6="select count(estado_vic) from tbl_victimas where id_parte={$id_parte} and estado_vic='muerto' and relacion_vic='ciclista' ";
+    $resu6= mysql_query($vic_m6,Conectarse());
+    $rowmuer6= mysql_fetch_array($resu6);
+    return $rowmuer6["0"];
+}
+
+
+
 
 function procesar_foto($ruta, $directorio, $nombre){
     // return  "Ruta: ".$ruta."<br>Directorio: ".$directorio."<br>Nombre: ".$nombre;

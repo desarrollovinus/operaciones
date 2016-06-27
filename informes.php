@@ -24,6 +24,9 @@
                             <input type="submit" id="info"  value="Gruas" name="info" class="bot"/>
                             <input type="submit" id="info"  value="No atendidos" name="info" class="bot"/>
                         </div>
+                        <div class="boton1">
+                            <input type="submit" id="info"  value="Informe gerencial" name="info" class="bot"/>
+                        </div>
                         <div class="boton"><input type="button" id="atras"  value="Regresar" name="atras" onclick="location.href='querys.php'" class="bot"/></div>
                     </div>
                 </form>
