@@ -13,7 +13,7 @@ include 'PHPExcel/Writer/Excel2007.php';
 include("funciones.php");
 $link=Conectarse();
 
-function configuracion($hoja){
+function configuracion($hoja, $cabecera = null){
 	//Definicion de las configuraciones por defecto en todo el libro
 	$hoja->getDefaultStyle()->getFont()->setName('Arial'); //Tipo de letra
 	$hoja->getDefaultStyle()->getFont()->setSize(8); //Tamanio
@@ -33,7 +33,7 @@ function configuracion($hoja){
 	$objDrawing2->setName('Logo ANI');
 	$objDrawing2->setDescription('Logo de uso exclusivo de ANI');
 	$objDrawing2->setPath('./images/logo_ani.jpg');
-	$objDrawing2->setCoordinates('A1');
+	$objDrawing2->setCoordinates($cabecera["logo_vinus"]);
 	$objDrawing2->setWidth(85);
 	$objDrawing2->setOffsetX(70);
 	$objDrawing2->setOffsetY(4);
@@ -44,7 +44,7 @@ function configuracion($hoja){
 	$objDrawing->setName('Logo Vinus');
 	$objDrawing->setDescription('Logo de uso exclusivo de Vinus');
 	$objDrawing->setPath('./images/logo_vinus.jpg');
-	$objDrawing->setCoordinates('AK1');
+	$objDrawing->setCoordinates($cabecera["logo_ani"]);
 	$objDrawing->setHeight(65);
 	$objDrawing->setOffsetX(22);
 	$objDrawing->setOffsetY(2);
@@ -52,17 +52,17 @@ function configuracion($hoja){
 	$objDrawing->setWorksheet($hoja);
 
 	// Celdas a combinar
-	$hoja->mergeCells('A1:D3');
-	$hoja->mergeCells('E1:AJ1');
-	$hoja->mergeCells('E2:AJ2');
-	$hoja->mergeCells('E3:AJ3');
-	$hoja->mergeCells('AK1:AN3');
-	$hoja->mergeCells('AO1:AQ1');
-	$hoja->mergeCells('AO2:AQ2');
-	$hoja->mergeCells('AO3:AQ3');
-	$hoja->mergeCells('AR1:AS1');
-	$hoja->mergeCells('AR2:AS2');
-	$hoja->mergeCells('AR3:AS3');
+	$hoja->mergeCells($cabecera["celda_logo_ani"]);
+	$hoja->mergeCells($cabecera["celda_proyecto"]);
+	$hoja->mergeCells($cabecera["celda_titulo"]);
+	$hoja->mergeCells($cabecera["celda_descripcion"]);
+	$hoja->mergeCells($cabecera["celda_logo_vinus"]);
+	$hoja->mergeCells($cabecera["celda_codigo_titulo"]);
+	$hoja->mergeCells($cabecera["celda_version_titulo"]);
+	$hoja->mergeCells($cabecera["celda_creado_titulo"]);
+	$hoja->mergeCells($cabecera["celda_version"]);
+	$hoja->mergeCells($cabecera["celda_codigo"]);
+	$hoja->mergeCells($cabecera["celda_creado"]);
 
 	// Definicion de la altura de las celdas
 	$hoja->getRowDimension(1)->setRowHeight(20);
@@ -71,15 +71,15 @@ function configuracion($hoja){
 	$hoja->getRowDimension(4)->setRowHeight(5);
 
 	// Encabezados
-	$hoja->setCellValue('AO1', 'Código');
-	$hoja->setCellValue('AO2', 'Versión');
-	$hoja->setCellValue('AO3', 'Creado');
-	$hoja->setCellValue('AR1', '');
-	$hoja->setCellValue('AR2', 'V1.00');
-	$hoja->setCellValue('AR3', '05/06/2016');
-	$hoja->setCellValue('E1', 'CONCESIÓN VÍAS DEL NUS - VINUS');
-	$hoja->setCellValue('E2', 'INFORME GERENCIAL');
-	
+	$hoja->setCellValue($cabecera["codigo_titulo"], "Código");
+	$hoja->setCellValue($cabecera["version_titulo"], "Versión");
+	$hoja->setCellValue($cabecera["creado_titulo"], "Creado");
+	$hoja->setCellValue($cabecera["codigo"], "F000");
+	$hoja->setCellValue($cabecera["version"], "V1.00");
+	$hoja->setCellValue($cabecera["fecha"], "05/06/2016");
+	$hoja->setCellValue($cabecera["proyecto"], "CONCESIÓN VÍAS DEL NUS - VINUS");
+	$hoja->setCellValue($cabecera["titulo_informe"], "INFORME GERENCIAL");
+	$hoja->setCellValue($cabecera["descripcion_celda"], $cabecera["descripcion"]);
 
 
 
@@ -88,7 +88,7 @@ function configuracion($hoja){
 
 
 	// Pié de página
-	// $hoja->getHeaderFooterimplicadossetOddFooter('&L&B' .$objPHPExcel->getActiveSheet->getProperties()->getTitle() . '&RPágina &P de &N');
+	// $hoja->getHeaderFooterimplicadossetOddFooter('&L&B' .$accidentalidad->getProperties()->getTitle() . '&RPágina &P de &N');
 }
 
 
@@ -120,16 +120,41 @@ $negrita = array( 'font' => array( 'bold' => true ) );
 **************************** Hoja de accidentalidad ****************************
 ********************************************************************************/
 $accidentalidad = $objPHPExcel->getActiveSheet();
-$accidentalidad = $objPHPExcel->getActiveSheet()->setTitle("Accidentalidad"); // Título de la hoja
+$accidentalidad->setTitle("Accidentalidad"); // Título de la hoja
 
+// Consulta de accidentes
 $sql_accidentes="Select * from tbl_accidente where fec_con between '{$fecha_inicial}' and '{$fecha_final}' order by fec_con";
 $accidentes = mysql_query($sql_accidentes,$link);
 
-// Se declaran las configuraciones de la hoja activa
-configuracion($accidentalidad);
+// Arreglo para definir las celdas límite y textos para la cabecera
+$cabecera = array(
+	"celda_logo_ani" => "A1:D3",
+	"celda_logo_vinus" => "AK1:AN3",
+	"celda_proyecto" => "E1:AJ1",
+	"celda_titulo" => "E2:AJ2",
+	"celda_codigo_titulo" => "AO1:AQ1",
+	"celda_version_titulo" => "AO2:AQ2",
+	"celda_creado_titulo" => "AO3:AQ3",
+	"celda_descripcion" => "E3:AJ3",
+	"celda_codigo" => "AR1:AS1",
+	"celda_version" => "AR2:AS2",
+	"celda_creado" => "AR3:AS3",
+	"logo_vinus" => "A1",
+	"logo_ani" => "AK1",
+	"codigo_titulo" => "AO1",
+	"version_titulo" => "AO2",
+	"creado_titulo" => "AO3",
+	"codigo" => "AR1",
+	"version" => "AR2",
+	"fecha" => "AR3",
+	"proyecto" => "E1",
+	"titulo_informe" => "E2",
+	"descripcion_celda" => "E3",
+	"descripcion" => "REGISTRO DE ATENCION DE ACCIDENTES - ".strtoupper(formatear_fecha($fecha_inicial))." AL ".strtoupper(formatear_fecha($fecha_final))
+);
 
-// Encabezados
-$accidentalidad->setCellValue('E3', "REGISTRO DE ATENCION DE ACCIDENTES DEL ".strtoupper(formatear_fecha($fecha_inicial))." AL ".strtoupper(formatear_fecha($fecha_final)));
+// Se declaran las configuraciones de la hoja activa
+configuracion($accidentalidad, $cabecera);
 
 // Arreglo con encabezados
 $titulos = array(
@@ -208,6 +233,7 @@ $accidentalidad->setCellValue("AF{$fila}", "HERIDOS");
 $accidentalidad->setCellValue("AL{$fila}", "VÍCTIMAS FATALES");
 $accidentalidad->setCellValue("AR{$fila}", "TIEMPOS DE RESPUESTA");
 
+// Fila de títulos
 $fila_titulos = $fila + 1;
 
 // Recorrido de columnas
@@ -219,10 +245,9 @@ for ($i=1; $i <= 45 ; $i++) {
 	if (isset($titulos[$i])) {
 		// Encabezado
 		$accidentalidad->setCellValue("{$columna}{$fila_titulos}", $titulos["$i"]);
-	}
+	} // if
 
-
-
+	// Aumento de columnas
 	$columna++;
 } // for
 
@@ -230,15 +255,15 @@ for ($i=1; $i <= 45 ; $i++) {
 $accidentalidad->getRowDimension($fila_titulos)->setRowHeight(140);
 
 // Estilos
-$objPHPExcel->getActiveSheet()->getStyle("A1:AS3")->applyFromArray($bordes);
-$objPHPExcel->getActiveSheet()->getStyle("A1:{$columna}{$fila_titulos}")->applyFromArray($centrado);
+$accidentalidad->getStyle("A1:AS3")->applyFromArray($bordes);
+$accidentalidad->getStyle("A1:{$columna}{$fila_titulos}")->applyFromArray($centrado);
 
 
 // AUmento de fila
 $fila = $fila_titulos + 1;
 
+// Columna y consecutivo
 $columna = "A";
-
 $consecutivo = 1;
 
 // Declaración de contadores
@@ -260,6 +285,7 @@ $sem_via = 0;
 $ade_proh = 0;
 $hip_otros = 0;
 
+// Recorrido de accidentes
 while($accidente = mysql_fetch_array($accidentes)) {
 	// Datos del accidente
 	$accidentalidad->setCellValue("A{$fila}", $consecutivo);
@@ -346,8 +372,8 @@ while($accidente = mysql_fetch_array($accidentes)) {
 
 
 
-	
-$consecutivo++;
+	// Aumento de fila y consecutivo
+	$consecutivo++;
 	$fila++;
 } // while
 
@@ -355,36 +381,35 @@ $fila_suma_inicial = $fila_titulos+1;
 $fila_suma_final = $fila-1;
 
 // Celdas a combinar
-$accidentalidad->mergeCells("A{$fila}:l{$fila}");
-
+$accidentalidad->mergeCells("A{$fila}:L{$fila}");
 
 // Totales
-$objPHPExcel->getActiveSheet()->setCellValue("A{$fila}", "TOTALES");
+$accidentalidad->setCellValue("A{$fila}", "TOTALES");
 
 // Tipo de accidente
-$objPHPExcel->getActiveSheet()->setCellValue("M{$fila}", $ch_contra_veh);
-$objPHPExcel->getActiveSheet()->setCellValue("N{$fila}", $ch_contra_obj);
-$objPHPExcel->getActiveSheet()->setCellValue("O{$fila}", $atropello);
-$objPHPExcel->getActiveSheet()->setCellValue("P{$fila}", $volcamiento);
-$objPHPExcel->getActiveSheet()->setCellValue("Q{$fila}", $caida_del_ocu);
-$objPHPExcel->getActiveSheet()->setCellValue("R{$fila}", $ch_contra_sem);
-$objPHPExcel->getActiveSheet()->setCellValue("S{$fila}", $otros_acc);
+$accidentalidad->setCellValue("M{$fila}", $ch_contra_veh);
+$accidentalidad->setCellValue("N{$fila}", $ch_contra_obj);
+$accidentalidad->setCellValue("O{$fila}", $atropello);
+$accidentalidad->setCellValue("P{$fila}", $volcamiento);
+$accidentalidad->setCellValue("Q{$fila}", $caida_del_ocu);
+$accidentalidad->setCellValue("R{$fila}", $ch_contra_sem);
+$accidentalidad->setCellValue("S{$fila}", $otros_acc);
 
 // Heridos y víctimas fatales
-$objPHPExcel->getActiveSheet()->setCellValue("T{$fila}", "=SUM(T{$fila_suma_inicial}:T{$fila_suma_final})");
-$objPHPExcel->getActiveSheet()->setCellValue("U{$fila}", "=SUM(U{$fila_suma_inicial}:U{$fila_suma_final})");
+$accidentalidad->setCellValue("T{$fila}", "=SUM(T{$fila_suma_inicial}:T{$fila_suma_final})");
+$accidentalidad->setCellValue("U{$fila}", "=SUM(U{$fila_suma_inicial}:U{$fila_suma_final})");
 
 // Hipótesis
-$objPHPExcel->getActiveSheet()->setCellValue("V{$fila}", $exc_vel);
-$objPHPExcel->getActiveSheet()->setCellValue("W{$fila}", $imp_peat);
-$objPHPExcel->getActiveSheet()->setCellValue("X{$fila}", $imp_con);
-$objPHPExcel->getActiveSheet()->setCellValue("Y{$fila}", $falta_pre);
-$objPHPExcel->getActiveSheet()->setCellValue("Z{$fila}", $embri);
-$objPHPExcel->getActiveSheet()->setCellValue("AA{$fila}", $fallas);
-$objPHPExcel->getActiveSheet()->setCellValue("AB{$fila}", $no_dis);
-$objPHPExcel->getActiveSheet()->setCellValue("AC{$fila}", $sem_via);
-$objPHPExcel->getActiveSheet()->setCellValue("AD{$fila}", $ade_proh);
-$objPHPExcel->getActiveSheet()->setCellValue("AE{$fila}", $hip_otros);
+$accidentalidad->setCellValue("V{$fila}", $exc_vel);
+$accidentalidad->setCellValue("W{$fila}", $imp_peat);
+$accidentalidad->setCellValue("X{$fila}", $imp_con);
+$accidentalidad->setCellValue("Y{$fila}", $falta_pre);
+$accidentalidad->setCellValue("Z{$fila}", $embri);
+$accidentalidad->setCellValue("AA{$fila}", $fallas);
+$accidentalidad->setCellValue("AB{$fila}", $no_dis);
+$accidentalidad->setCellValue("AC{$fila}", $sem_via);
+$accidentalidad->setCellValue("AD{$fila}", $ade_proh);
+$accidentalidad->setCellValue("AE{$fila}", $hip_otros);
 
 // Columna
 $columna = "AF";
@@ -392,7 +417,7 @@ $columna = "AF";
 // Recorrido para ahorrar columnas
 for ($i=1; $i <= 12; $i++) { 
 	// Heridos y víctimas fatales motocicletaqs, vehículos, peatones y ciclistas
-	$objPHPExcel->getActiveSheet()->setCellValue("{$columna}{$fila}", "=SUM({$columna}{$fila_suma_inicial}:{$columna}{$fila_suma_final})");
+	$accidentalidad->setCellValue("{$columna}{$fila}", "=SUM({$columna}{$fila_suma_inicial}:{$columna}{$fila_suma_final})");
 	
 	// Aumento de columna
 	$columna++;
@@ -404,10 +429,8 @@ for ($i=1; $i <= 12; $i++) {
 
 
 // Estilos
-$objPHPExcel->getActiveSheet()->getStyle("A5:AS{$fila}")->applyFromArray($bordes);
-$objPHPExcel->getActiveSheet()->getStyle("A{$fila}:AS{$fila}")->applyFromArray($negrita);
-
-
+$accidentalidad->getStyle("A5:AS{$fila}")->applyFromArray($bordes);
+$accidentalidad->getStyle("A{$fila}:AS{$fila}")->applyFromArray($negrita);
 
 // Tamaños de ciertas columnas
 $accidentalidad->getColumnDimension("B")->setWidth(7);
@@ -422,27 +445,237 @@ $accidentalidad->getColumnDimension("AR")->setWidth(8);
 $accidentalidad->getColumnDimension("AS")->setWidth(8);
 
 // Estilos
-$objPHPExcel->getActiveSheet()->getStyle("A6:AS6")->getAlignment()->setTextRotation(90); // Rotar el texto
-$objPHPExcel->getActiveSheet()->getStyle("A6:AS6")->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_BOTTOM); // Alineación
+$accidentalidad->getStyle("A6:AS6")->getAlignment()->setTextRotation(90); // Rotar el texto
+$accidentalidad->getStyle("A6:AS6")->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_BOTTOM); // Alineación
 
+/*******************************************************************************
+****************************** Hoja de implicados ******************************
+********************************************************************************/
+$implicados = $objPHPExcel->createSheet(); //Nueva hoja
+$implicados->setTitle("Implicados");//Titulo de la hoja
 
+// Hoja activa
+$objPHPExcel->setActiveSheetIndex(1);
 
-// Fila de inicio
-$fila = 6;
+// Consulta de implicados
+$sql_involucrados="Select * from tbl_accidente, tbl_involucrados where tbl_accidente.fec_con between '{$fecha_inicial}' and '{$fecha_final}' and tbl_involucrados.id_parte=tbl_accidente.id_parte order by tbl_accidente.fec_con";
+$involucrados = mysql_query($sql_involucrados,$link);
 
-
-
-
-
-
-/********************************************************************************
-****************************** Hoja de incidencias ******************************
-*********************************************************************************/
-$incidencias = $objPHPExcel->createSheet(); //Nueva hoja
-$incidencias->setTitle("Incidencias");//Titulo de la hoja
+// Arreglo para definir las celdas límite y textos para la cabecera
+$cabecera = array(
+	"celda_logo_ani" => "A1:C3",
+	"celda_logo_vinus" => "O1:Q3",
+	"celda_proyecto" => "D1:N1",
+	"celda_titulo" => "D2:N2",
+	"celda_descripcion" => "D3:N3",
+	"celda_codigo_titulo" => "R1:T1",
+	"celda_version_titulo" => "R2:T2",
+	"celda_creado_titulo" => "R3:T3",
+	"celda_codigo" => "U1:W1",
+	"celda_version" => "U2:W2",
+	"celda_creado" => "U3:W3",
+	"logo_vinus" => "A1",
+	"logo_ani" => "O1",
+	"codigo_titulo" => "R1",
+	"version_titulo" => "R2",
+	"creado_titulo" => "R3",
+	"codigo" => "U1",
+	"version" => "U2",
+	"fecha" => "U3",
+	"proyecto" => "D1",
+	"titulo_informe" => "D2",
+	"descripcion_celda" => "D3",
+	"descripcion" => "REGISTRO DE VEHÍCULOS IMPLICADOS EN ACCIDENTES - ".strtoupper(formatear_fecha($fecha_inicial))." AL ".strtoupper(formatear_fecha($fecha_final))
+);
 
 // Se declaran las configuraciones de la hoja activa
-configuracion($incidencias);
+configuracion($implicados, $cabecera);
+
+// Arreglo con encabezados
+$titulos = array(
+	"",
+	"CONSECUTIVO",
+	"PARTE",
+	"FECHA",
+	"HORA",
+	"VÍA",
+	"TRAMO",
+	"CALZADA",
+	"ABSCISA",
+	"TIPO",
+	"PLACA",
+	"MARCA",
+	"CILINDRAJE",
+	"HERIDOS",
+	"VÍCTIMAS MORTALES",
+	"INSPECTOR",
+	"AMBULANCIA",
+	"GRÚA",
+	"DIRECTOR DE OPERACIONES",
+	"AGENTES DE TRÁNSITO",
+	"POLICÍA DE TRÁNSITO",
+	"FISCALÍA",
+	"SEÑALIZACIÓN",
+	"BOMBEROS",
+);
+
+// Declaración de fila y columna inicial
+$columna = "A";
+$fila = 4;
+$fila++;
+
+// Celdas a combinar
+$implicados->mergeCells("A{$fila}:L{$fila}");
+$implicados->mergeCells("M{$fila}:W{$fila}");
+
+// Definicion de la altura de las filas
+$implicados->getRowDimension($fila)->setRowHeight(30);
+
+// Encabezados
+$implicados->setCellValue("A{$fila}", "DATOS DEL INCIDENTE");
+$implicados->setCellValue("M{$fila}", "ATENCIÓN");
+
+// Fila de títulos
+$fila_titulos = $fila + 1;
+
+// Tamaño de columnas
+$implicados->getColumnDimension("A")->setWidth(5);
+$implicados->getColumnDimension("B")->setWidth(9);
+$implicados->getColumnDimension("C")->setWidth(15);
+$implicados->getColumnDimension("D")->setWidth(9);
+$implicados->getColumnDimension("E")->setWidth(9);
+$implicados->getColumnDimension("F")->setWidth(9);
+$implicados->getColumnDimension("G")->setWidth(9);
+$implicados->getColumnDimension("H")->setWidth(9);
+$implicados->getColumnDimension("I")->setWidth(15);
+$implicados->getColumnDimension("J")->setWidth(15);
+$implicados->getColumnDimension("K")->setWidth(15);
+$implicados->getColumnDimension("L")->setWidth(9);
+$implicados->getColumnDimension("M")->setWidth(5);
+$implicados->getColumnDimension("N")->setWidth(5);
+$implicados->getColumnDimension("O")->setWidth(5);
+$implicados->getColumnDimension("P")->setWidth(5);
+$implicados->getColumnDimension("Q")->setWidth(5);
+$implicados->getColumnDimension("R")->setWidth(5);
+$implicados->getColumnDimension("S")->setWidth(5);
+$implicados->getColumnDimension("T")->setWidth(5);
+$implicados->getColumnDimension("U")->setWidth(5);
+$implicados->getColumnDimension("V")->setWidth(5);
+$implicados->getColumnDimension("W")->setWidth(5);
+
+// Recorrido de columnas
+for ($i=1; $i <= 23 ; $i++) {
+	// Si hay valor en el arreglo para la columna
+	if (isset($titulos[$i])) {
+		// Encabezado
+		$implicados->setCellValue("{$columna}{$fila_titulos}", $titulos["$i"]);
+	} // if
+
+	// Aumento de columnas
+	$columna++;
+} // for
+
+// Definición de altura de las filas
+$implicados->getRowDimension($fila_titulos)->setRowHeight(140);
+
+// Estilos
+$implicados->getStyle("A1:W3")->applyFromArray($bordes);
+$implicados->getStyle("A1:{$columna}{$fila_titulos}")->applyFromArray($centrado);
+
+// AUmento de fila
+$fila = $fila_titulos + 1;
+
+// Columna y consecutivo
+$columna = "A";
+$consecutivo = 1;
+
+// Declaración de contadores
+$insp_vial = 0;
+$ambulancia = 0;
+$grua_con = 0;
+$director_ope = 0;
+$agentes_trans = 0;
+$policia_trans = 0;
+$fiscalia = 0;
+$senalizacion = 0;
+$bomberos = 0;
+
+// Recorrido de incidentes
+while($involucrado = mysql_fetch_array($involucrados)) {
+	// Datos del accidente
+	$implicados->setCellValue("A{$fila}", $consecutivo);
+	$implicados->setCellValue("B{$fila}", $involucrado["id_parte"]);
+	$implicados->setCellValue("C{$fila}", date("d-m-Y", strtotime($involucrado["fec_pro"])));
+	$implicados->setCellValue("D{$fila}", date("h:i", strtotime($involucrado["fec_pro"])));
+	$implicados->setCellValue("E{$fila}", $involucrado["via"]);
+	$implicados->setCellValue("F{$fila}", $involucrado["tramo"]);
+	$implicados->setCellValue("G{$fila}", $involucrado["calzada"]);
+	$implicados->setCellValue("H{$fila}", $involucrado["abcisa"]);
+	$implicados->setCellValue("I{$fila}", $involucrado["tipo_veh"]);
+	$implicados->setCellValue("J{$fila}", $involucrado["placa_veh"]);
+	$implicados->setCellValue("K{$fila}", $involucrado["marca_veh"]);
+	$implicados->setCellValue("L{$fila}", $involucrado["cilindraje"]);
+
+	// Heridos y víctimas mortales
+	$implicados->setCellValue("M{$fila}", numero_heridos($involucrado["id_parte"]));
+	$implicados->setCellValue("N{$fila}", numero_victimas($involucrado["id_parte"]));
+	
+	// Servicios
+	if($involucrado["insp_vial"] == "X"){$insp_vial++;}
+	if($involucrado["ambulancia"] == "X"){$ambulancia++;}
+	if($involucrado["grua_con"] == "X"){$grua_con++;}
+	if($involucrado["director_ope"] == "X"){$director_ope++;}
+	if($involucrado["agentes_trans"] == "X"){$agentes_trans++;}
+	if($involucrado["policia_trans"] == "X"){$policia_trans++;}
+	if($involucrado["fiscalia"] == "X"){$fiscalia++;}
+	if($involucrado["senalizacion"] == "X"){$senalizacion++;}
+	if($involucrado["bomberos"] == "X"){$bomberos++;}
+
+	$implicados->setCellValue("O{$fila}", $involucrado["insp_vial"]);
+	$implicados->setCellValue("P{$fila}", $involucrado["ambulancia"]);
+	$implicados->setCellValue("Q{$fila}", $involucrado["grua_con"]);
+	$implicados->setCellValue("R{$fila}", $involucrado["director_ope"]);
+	$implicados->setCellValue("S{$fila}", $involucrado["agentes_trans"]);
+	$implicados->setCellValue("T{$fila}", $involucrado["policia_trans"]);
+	$implicados->setCellValue("U{$fila}", $involucrado["fiscalia"]);
+	$implicados->setCellValue("V{$fila}", $involucrado["senalizacion"]);
+	$implicados->setCellValue("E{$fila}", $involucrado["bomberos"]);
+
+	// Aumento de fila y consecutivo
+	$consecutivo++;
+	$fila++;
+} // while
+
+$fila_suma_inicial = $fila_titulos+1;
+$fila_suma_final = $fila-1;
+
+// Celdas a combinar
+$implicados->mergeCells("A{$fila}:L{$fila}");
+
+// Totales
+$implicados->setCellValue("M{$fila}", "=SUM(M{$fila_suma_inicial}:M{$fila_suma_final})");
+$implicados->setCellValue("N{$fila}", "=SUM(N{$fila_suma_inicial}:N{$fila_suma_final})");
+$implicados->setCellValue("O{$fila}", $insp_vial);
+$implicados->setCellValue("P{$fila}", $ambulancia);
+$implicados->setCellValue("Q{$fila}", $grua_con);
+$implicados->setCellValue("R{$fila}", $director_ope);
+$implicados->setCellValue("S{$fila}", $agentes_trans);
+$implicados->setCellValue("T{$fila}", $policia_trans);
+$implicados->setCellValue("U{$fila}", $fiscalia);
+$implicados->setCellValue("V{$fila}", $senalizacion);
+$implicados->setCellValue("W{$fila}", $bomberos);
+
+// Estilos
+$implicados->getStyle("A5:W{$fila}")->applyFromArray($bordes);
+$implicados->getStyle("A{$fila}:W{$fila}")->applyFromArray($negrita);
+
+// Tamaños de ciertas columnas
+// $implicados->getColumnDimension("B")->setWidth(7);
+
+// Estilos
+$implicados->getStyle("A6:W6")->getAlignment()->setTextRotation(90); // Rotar el texto
+$implicados->getStyle("A6:W6")->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_BOTTOM); // Alineación
+
 
 
 
@@ -452,11 +685,11 @@ configuracion($incidencias);
 /********************************************************************************
 *********************************** Implicados ***********************************
 *********************************************************************************/
-$implicados = $objPHPExcel->createSheet(); //Nueva hoja
-$implicados->setTitle("Implicados");//Titulo de la hoja
+// $implicados = $objPHPExcel->createSheet(); //Nueva hoja
+// $implicados->setTitle("Implicados");//Titulo de la hoja
 
 // Se declaran las configuraciones de la hoja activa
-configuracion($implicados);
+// configuracion($implicados);
 
 
 
@@ -489,7 +722,7 @@ $pluma = $objPHPExcel->createSheet(); //Nueva hoja
 $pluma->setTitle("Grúa pluma");//Titulo de la hoja
 
 // Se declaran las configuraciones de la hoja activa
-configuracion($pluma);
+// configuracion($pluma);
 
 
 
@@ -506,7 +739,7 @@ $planchon = $objPHPExcel->createSheet(); //Nueva hoja
 $planchon->setTitle("Señalización");//Titulo de la hoja
 
 // Se declaran las configuraciones de la hoja activa
-configuracion($planchon);
+// configuracion($planchon);
 
 
 
@@ -522,10 +755,10 @@ configuracion($planchon);
 
 
 
-//Se modifican los encabezados del HTTP para indicar que se envia un archivo de Excel.
+// Se modifican los encabezados del HTTP para indicar que se envia un archivo de Excel.
 header('Cache-Control: max-age=0');
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header("Content-Disposition: attachment; filename='informe.xlsx'");
+header("Content-Disposition: attachment; filename='Informe gerencial.xlsx'");
 
 //Se genera el excel
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
