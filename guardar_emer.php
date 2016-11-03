@@ -30,8 +30,8 @@ $resultado1= mysql_query($nuevo_regi,$link);
 $consulta="SELECT * FROM tbl_parte where fechahora='$fechahora'";
 $resul= mysql_query($consulta,$link);
 $row = mysql_fetch_array($resul);
-$id_parte=$row[id_parte];
-$_SESSION[id_parte]=$id_parte;
+$id_parte=$row['id_parte'];
+$_SESSION['id_parte']=$id_parte;
 
 
  $nuevo_reg="insert into tbl_emergencias values ('','".$id_parte."','".$via."','".$tramo."','".$calzada."','".$abcisa."','".$h_ini_emer."','".$h_fin_emer."','".$derra_sust."','".$per_banca."','".$pro_orden."','".$des_quebrada."','".$incendio."','".$derr_via."','".$fuga_gas."','".$cai_puente."','".$inundacion."','".$otros_em."','".$desc_eme."')";
