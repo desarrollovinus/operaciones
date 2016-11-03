@@ -25,12 +25,6 @@ include 'mail/enviar.php';
     $resultado= mysql_query($nuevo_reg,$link);
     
     
-    /*
-     * Establecer parametros para enviar el correo
-     */
-    $usuarios = array("monica.ochoa@hatovial.com", "blas.pedrozo@hatovial.com", "john.cano@hatovial.com");
-    //$usuarios = array("john.cano@hatovial.com");        //Se definen los usuarios a los que se enviara los correos
-    
     $consecutivo = mysql_insert_id();                   //Se obtiene el numero de consecutivo
     $plantilla = "reportes/plantilla_email.html";       //Se envia la ruta de la plantilla para el correo
     
@@ -45,7 +39,7 @@ include 'mail/enviar.php';
         }
         
         //Se ejecuta la funcion que envia el email
-        // enviar($asunto, $mensaje, $plantilla, $usuarios);
+        enviar($asunto, $mensaje, $plantilla);
     }
     
     //Cuando el accidente se cancele
@@ -55,18 +49,7 @@ include 'mail/enviar.php';
         $asunto = "Reporte Cancelado";
         
         //Se ejecuta la funcion que envia el email
-        // enviar($asunto, $mensaje, $plantilla, $usuarios);
-    }
-	
-	//Si es regency, se envia a Juan Castell
-    if($emisor == 'peajes regency'){
-        $mensaje = utf8_decode("Se ha creado un registro en bitácora (".$asunto.") con el número de consecutivo ".$consecutivo.":<br/><br/>".$anotacion);
-        $asunto = "Reporte de atención en peajes";
-        //$usuarios = array("john.cano@hatovial.com");
-        $usuarios = array("juan.castell@hatovial.com", "john.cano@hatovial.com");
-        
-        //Se ejecuta la funcion que envia el email
-        // enviar($asunto, $mensaje, $plantilla, $usuarios);
+        enviar($asunto, $mensaje, $plantilla);
     }
  ?>
 <meta HTTP-EQUIV="REFRESH" content="0; url=querys.php">

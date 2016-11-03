@@ -78,7 +78,7 @@ function configuracion($hoja, $cabecera = null){
 	$hoja->setCellValue($cabecera["version"], "V1.00");
 	$hoja->setCellValue($cabecera["fecha"], "05/06/2016");
 	$hoja->setCellValue($cabecera["proyecto"], "CONCESIÓN VÍAS DEL NUS - VINUS");
-	$hoja->setCellValue($cabecera["titulo_informe"], "INFORME GERENCIAL");
+	$hoja->setCellValue($cabecera["titulo_informe"], "INFORME GERENCIAL DE OPERACIONES");
 	$hoja->setCellValue($cabecera["descripcion_celda"], $cabecera["descripcion"]);
 
 
@@ -368,10 +368,6 @@ while($accidente = mysql_fetch_array($accidentes)) {
 	$accidentalidad->setCellValue("AR{$fila}", "=MINUTE(K{$fila}-J{$fila})");
 	$accidentalidad->setCellValue("AS{$fila}", "=MINUTE(L{$fila}-K{$fila})");
 
-
-
-
-
 	// Aumento de fila y consecutivo
 	$consecutivo++;
 	$fila++;
@@ -453,9 +449,6 @@ $accidentalidad->getStyle("A6:AS6")->getAlignment()->setVertical(PHPExcel_Style_
 ********************************************************************************/
 $implicados = $objPHPExcel->createSheet(); //Nueva hoja
 $implicados->setTitle("Implicados");//Titulo de la hoja
-
-// Hoja activa
-$objPHPExcel->setActiveSheetIndex(1);
 
 // Consulta de implicados
 $sql_involucrados="Select * from tbl_accidente, tbl_involucrados where tbl_accidente.fec_con between '{$fecha_inicial}' and '{$fecha_final}' and tbl_involucrados.id_parte=tbl_accidente.id_parte order by tbl_accidente.fec_con";
@@ -669,44 +662,22 @@ $implicados->setCellValue("W{$fila}", $bomberos);
 $implicados->getStyle("A5:W{$fila}")->applyFromArray($bordes);
 $implicados->getStyle("A{$fila}:W{$fila}")->applyFromArray($negrita);
 
-// Tamaños de ciertas columnas
-// $implicados->getColumnDimension("B")->setWidth(7);
-
 // Estilos
 $implicados->getStyle("A6:W6")->getAlignment()->setTextRotation(90); // Rotar el texto
 $implicados->getStyle("A6:W6")->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_BOTTOM); // Alineación
 
-
-
-
-
-
-
-/********************************************************************************
-*********************************** Implicados ***********************************
-*********************************************************************************/
-// $implicados = $objPHPExcel->createSheet(); //Nueva hoja
-// $implicados->setTitle("Implicados");//Titulo de la hoja
-
-// Se declaran las configuraciones de la hoja activa
-// configuracion($implicados);
-
-
-
-
-
-
 // /**********************************************************************************
 // ********************************** Grúa planchón **********************************
 // ***********************************************************************************/
-// $hoja = $objPHPExcel->createSheet(); //Nueva hoja
-// $hoja->setTitle("Grúa planchón");//Titulo de la hoja
+$planchon = $objPHPExcel->createSheet(); //Nueva hoja
+$planchon->setTitle("Grúa planchón");//Titulo de la hoja
 
-// // Se declaran las configuraciones de la hoja activa
-// configuracion($objPHPExcel);
+// Se declaran las configuraciones de la hoja activa
+// configuracion($planchon);
 
-
-
+// Consulta de grúa planchón
+$sql_planchon="Select * from tbl_accidente, tbl_involucrados where tbl_accidente.fec_con between '{$fecha_inicial}' and '{$fecha_final}' and tbl_involucrados.id_parte=tbl_accidente.id_parte order by tbl_accidente.fec_con";
+$planchones = mysql_query($sql_planchon,$link);
 
 
 
@@ -728,6 +699,93 @@ $pluma->setTitle("Grúa pluma");//Titulo de la hoja
 
 
 
+
+/*********************************************************************************
+*********************************** Ambulancia ***********************************
+**********************************************************************************/
+$ambulancias = $objPHPExcel->createSheet(); //Nueva hoja
+$ambulancias->setTitle("Ambulancia");//Titulo de la hoja
+
+// Consulta de ambulancias
+$sql_ambulancias="";
+$r_ambulancias = mysql_query($sql_ambulancias,$link);
+
+// Arreglo para definir las celdas límite y textos para la cabecera
+$cabecera = array(
+	"celda_logo_ani" => "A1:D3",
+	"celda_logo_vinus" => "AE1:AF3",
+	"celda_proyecto" => "E1:AD1",
+	"celda_titulo" => "E2:AD2",
+	"celda_codigo_titulo" => "AG1:AG1",
+	"celda_version_titulo" => "AG2:AG2",
+	"celda_creado_titulo" => "AG3:AG3",
+	"celda_descripcion" => "E3:AD3",
+	"celda_codigo" => "AH1:AH1",
+	"celda_version" => "AH2:AH2",
+	"celda_creado" => "AH3:AH3",
+	"logo_vinus" => "A1",
+	"logo_ani" => "AE1",
+	"codigo_titulo" => "AG1",
+	"version_titulo" => "AG2",
+	"creado_titulo" => "AG3",
+	"codigo" => "AH1",
+	"version" => "AH2",
+	"fecha" => "AH3",
+	"proyecto" => "E1",
+	"titulo_informe" => "E2",
+	"descripcion_celda" => "E3",
+	"descripcion" => "REGISTRO DE SERVICIOS DE AMBULANCIA EN ACCIDENTES - ".strtoupper(formatear_fecha($fecha_inicial))." AL ".strtoupper(formatear_fecha($fecha_final))
+);
+
+// Se declaran las configuraciones de la hoja activa
+configuracion($ambulancias, $cabecera);
+
+// Hoja activa
+$objPHPExcel->setActiveSheetIndex(4);
+
+// Arreglo con encabezados
+$titulos = array(
+	"",
+	"CONSECUTIVO",
+	"CONSECUTIVO OPERACIONES",
+	"FECHA",
+	"HORA",
+	"NOMBRE DEL USUARIO LESIONADO",
+	"VÍA",
+	"TRAMO",
+	"CALZADA",
+	"ABSCISA",
+	"CAUSA EXTERNA QUE ORIGINA LA ATENCIÓN",
+	"OXIGENACIÓN",
+	"ASPIRACIÓN",
+	"RCCP",
+	"MONITOREO",
+	"INMOVILIZACIÓN",
+	"APOYO PSICOLÓGICO",
+	"VENTILACIÓN",
+	"INTUBACIÓN",
+	"DESFIBRILACIÓN",
+	"VENDAJE",
+	"COLLAR CERVICAL",
+	"ASEPSIA",
+	"OTROS",
+	"DIAGNÓSTICO",
+	"ACIDENTE DE TRÁNSITO",
+	"HOSPITAL CISNEROS (SAN ANTONIO)",
+	"HOSPITAL SAN ROQUE (SAN RAFAEL)",
+	"CENTRO DE SALUD (SAN JOSÉ DEL NUS)",
+	"SIN TRASLADO",
+	"HORA CONOCIMIENTO",
+	"HORA ATENCIÓN",
+	"HORA RECEPCIÓN AMBULANCIA HOSPITAL",
+	"TIEMPO DE RECEPCIÓN",
+	"TIEMPO DE ASISTENCIA",
+);
+
+// Declaración de fila y columna inicial
+$columna = "A";
+$fila = 4;
+$fila++;
 
 
 

@@ -34,6 +34,7 @@ $tabla = '<table border="1" bordercolor="white" cellspacing="0" width="100%">';
     $tabla .= '<tr>';
     $tabla .= '<th>Parte</th>';
     $tabla .= '<th>Fecha de Creación</th>';
+    $tabla .= '<th>Hora</th>';
     $tabla .= '<th>Inspector</th>';
     $tabla .= '<th>Motivo</th>';
     $tabla .= '<th>Días vencido</th>';
@@ -53,7 +54,8 @@ $tabla = '<table border="1" bordercolor="white" cellspacing="0" width="100%">';
                     $tabla .= '<tr bordercolor="black">';
                     $tabla .= '<td align="right">'.$row['id_parte'].'</td>';
                     $tabla .= '</td>';
-                    $tabla .= '<td align="right">'.$row['fechahora'].'&nbsp;</td>';
+                    $tabla .= '<td align="right">'.date('d-m-Y', strtotime($row['fechahora'])).'&nbsp;</td>';
+                    $tabla .= '<td align="right">'.date('H:i', strtotime($row['fechahora'])).'&nbsp;</td>';
                     $tabla .= '</td>';
                     $tabla .= '<td>'.$row['inspector'].'</td>';
                     $tabla .= '</td>';
@@ -70,7 +72,8 @@ $tabla = '<table border="1" bordercolor="white" cellspacing="0" width="100%">';
                     $tabla .= '<tr bordercolor="black">';
                     $tabla .= '<td align="right">'.$row['id_parte'].'</td>';
                     $tabla .= '</td>';
-                    $tabla .= '<td align="right">'.$row['fechahora'].'&nbsp;</td>';
+                    $tabla .= '<td align="right">'.date('d-m-Y', strtotime($row['fechahora'])).'&nbsp;</td>';
+                    $tabla .= '<td align="right">'.date('H:i', strtotime($row['fechahora'])).'&nbsp;</td>';
                     $tabla .= '</td>';
                     $tabla .= '<td>'.$row['inspector'].'</td>';
                     $tabla .= '</td>';
@@ -91,14 +94,11 @@ $asunto = "Informe de accidentes incompletos";
 if($contador == 0){
     $mensaje = utf8_decode("Los partes creados desde el 01-01-".date("Y")." y hasta el ".date("d-m-Y", strtotime(date()."-2 day"))." están completos.");
 }else{
-    $mensaje = utf8_decode("Desde el 01-01-".date("Y")." hasta el ".date("d-m-Y", strtotime(date()."-2 day"))." existen ".number_format($contador, 0, '', '.')." partes incompletos. Este es el listado correspondiente:".$tabla);
+    $mensaje = utf8_decode("Desde el 01-01-".date("Y")." hasta el ".date("d-m-Y", strtotime(date('d-m-Y')."-2 day"))." existen ".number_format($contador, 0, '', '.')." partes incompletos. Este es el listado correspondiente:".$tabla);
 }
 
-$plantilla = "plantilla_email.html";
-
-$usuarios = array("monica.ochoa@hatovial.com, juan.gonzalez@hatovial.com");                                //Se definen los usuarios a los que se enviara los correos
-//$usuarios = array("john.cano@hatovial.com");        //Se definen los usuarios a los que se enviara los correos
+$plantilla = "../reportes/plantilla_email.html";
 
 //Se envia el email
-enviar($asunto, $mensaje, $plantilla, $usuarios);
+enviar($asunto, $mensaje, $plantilla);
 ?>

@@ -42,11 +42,12 @@ $consulta = mysql_query(
 /********************************tabla********************************/
 $tabla = '<table border="1" bordercolor="white" cellspacing="0" width="100%">';
     /********************************cabecera********************************/
-    $tabla .= '<thead border="1" bordercolor="black" style="background-color:#C8D7DC; font-family:Tahoma; color: black; font-size: 13px;" width="100%">';
+    $tabla .= '<thead border="1" bordercolor="black" style="background-color:#C8D7DC; font-family:Tahoma; color: black; font-size: 12px;" width="100%">';
     $tabla .= '<tr>';
     $tabla .= '<th>Parte</th>';
     $tabla .= '<th>Tipo</th>';
     $tabla .= '<th>Fecha de Creación</th>';
+    $tabla .= '<th>Hora</th>';
     $tabla .= '<th>Inspector</th>';
     $tabla .= '</tr>';
     $tabla .= '</thead>';
@@ -62,7 +63,8 @@ $tabla = '<table border="1" bordercolor="white" cellspacing="0" width="100%">';
 	    	$tabla .= '<tr bordercolor="black">';
 	    	$tabla .= '<td align="right">'.$row['id_parte'].'</td>';
 	    	$tabla .= '<td>'.$row['motivo_parte'].'</td>';
-            $tabla .= '<td align="right">'.$row['fechahora'].'&nbsp;</td>';
+            $tabla .= '<td align="right">'.date('d-m-Y', strtotime($row['fechahora'])).'&nbsp;</td>';
+            $tabla .= '<td align="right">'.date('H:i', strtotime($row['fechahora'])).'&nbsp;</td>';
             $tabla .= '<td>'.$row['inspector'].'</td>';
             $tabla .= '</tr>';
 	    } // while
@@ -78,11 +80,8 @@ if($contador == 0){
     $mensaje = utf8_decode("A la fecha existen ".number_format($contador, 0, '', '.')." partes sin atención y los cuales no se ha especificado el motivo de la no asistencia. Este es el listado correspondiente:".$tabla);
 }
 
-$plantilla = "plantilla_email.html";
-
-$usuarios = array("monica.ochoa@hatovial.com, juan.gonzalez@hatovial.com");                                //Se definen los usuarios a los que se enviara los correos
-// $usuarios = array("john.cano@hatovial.com");        //Se definen los usuarios a los que se enviara los correos
+$plantilla = "../reportes/plantilla_email.html";
 
 //Se envia el email
-enviar($asunto, $mensaje, $plantilla, $usuarios);
+enviar($asunto, $mensaje, $plantilla);
 ?>

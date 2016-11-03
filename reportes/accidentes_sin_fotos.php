@@ -41,6 +41,9 @@ $tabla = '<table border="1" bordercolor="white" cellspacing="0" width="100%">';
     $tabla .= '</tr>';
     $tabla .= '</thead>';
 
+    // Número de archivos
+    $numero_archivos = 0;
+
     /********************************cuerpo********************************/
     $tabla .= '<tbody style="font-family:Tahoma; font-size: 12px;">';
         while ( $row = mysql_fetch_array($consulta)){
@@ -79,11 +82,8 @@ if(mysql_num_rows($consulta) == 0){
     $mensaje = utf8_decode("A la fecha hay ".number_format(mysql_num_rows($consulta), 0, '', '.')." accidentes que no tienen registro fotográfico. Este es el listado correspondiente:<br/>".$tabla);
 }
 
-$plantilla = "plantilla_email.html";
-
-$usuarios = array("maribel.pena@hatovial.com", "monica.ochoa@hatovial.com", "juan.gonzalez@hatovial.com");                                //Se definen los usuarios a los que se enviara los correos
-//$usuarios = array("john.cano@hatovial.com");        //Se definen los usuarios a los que se enviara los correos
+$plantilla = "../reportes/plantilla_email.html";
 
 //Se envia el email
-enviar($asunto, $mensaje, $plantilla, $usuarios);
+enviar($asunto, $mensaje, $plantilla);
 ?>

@@ -101,12 +101,6 @@ $_SESSION[id_parte]=$id_parte;
      '".$ade_proh."','".$imp_con."','".$mal_est."','".$imp_peat."','".$contravia."','".$sem_via."','".$obras_via."',
      '".$huecos_via."','".$hip_otros."','".$desc."','".$fotos."')";
  $res= mysql_query($nuevo_reg,$link);
-
- /*
- * Establecer parametros para enviar el correo
- */
-$usuarios = array("maribel.pena@hatovial.com", "monica.ochoa@hatovial.com", "juan.gonzalez@hatovial.com");                                //Se definen los usuarios a los que se enviara los correos
-// $usuarios = array("john.cano@hatovial.com");        //Se definen los usuarios a los que se enviara los correos
     
 //Se consulta el inspector
 $consultar_inspector =
@@ -120,13 +114,13 @@ tbl_parte.id_parte = ".$parte;
 $inspector = mysql_query($consultar_inspector, $link);
 $insp = mysql_fetch_array($inspector);
 
-$plantilla = "reportes/plantilla_email.html";       //Se envia la ruta de la plantilla para el correo
-
 //Se preparan los datos a enviar
 $mensaje = utf8_decode("Se ha creado un accidente con el número de parte ".$parte.":<br/><br/>Inspector: ".$insp["inspector"]."<br/>Descripción: ".$desc);
 $asunto = "Creación de parte por accidente";
 
+$plantilla = "reportes/plantilla_email.html";
+
 //Se ejecuta la funcion que envia el email
-enviar($asunto, $mensaje, $plantilla, $usuarios);
+enviar($asunto, $mensaje, $plantilla);
 ?>
 <meta HTTP-EQUIV="REFRESH" content="0; url=involucrados.php">

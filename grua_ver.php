@@ -28,7 +28,7 @@ $resul= mysql_query($consulta,$link);
     </head>
     <body>
         <div id="campo_inv">
-            <input type="button" id="imprimir" name="imprimir" Value="Imprimir Planilla"  class="bot"">
+            <input type="button" id="imprimir" name="imprimir" Value="Imprimir Planilla"  class="bot">
             <input type="button" id="regresar" name="regresar" Value="Regresar"  onclick="location.href='ver.php'"class="bot">
         </div>
         <?php
@@ -138,7 +138,7 @@ $resul= mysql_query($consulta,$link);
                         <div class="campo_inv">
                             <select id="marca_veh" name="marca_veh" class="sen-class" disabled="disabled">
                                 <optgroup label="Seleccione">
-                                    <option value=""><?php echo $row[""]; ?></option>
+                                    <option value=""><?php echo $row["marca_veh"]; ?></option>
                                 </optgroup>
                             </select>
                         </div>
