@@ -14,7 +14,7 @@ date_default_timezone_set('America/Bogota');
     $pdf =& new Cezpdf('LETTER','portrait');
     $pdf->selectFont('../fonts/arial.afm');
     $pdf->ezSetCmMargins(1,1,1.5,1.5);
-    $pdf->ezStartPageNumbers(580,20,10,'','Grupo Ejecutor Hatovial S.A.S - Pagina {PAGENUM} de {TOTALPAGENUM}',1);
+    $pdf->ezStartPageNumbers(580,20,10,'',utf8_decode('Concesión Vías del Nus - Página {PAGENUM} de {TOTALPAGENUM}'),1);
 
     //Logo del informe
     $pdf->ezImage("images/logo_backup.jpg", 0, 150, 'none', 'left');
