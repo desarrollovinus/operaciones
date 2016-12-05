@@ -7,6 +7,7 @@ $ced=$_SESSION["ced"];
 
 $fechahora=$_POST['fecha'];
 $via=$_POST['via'];
+$radiooperador=$_POST['radiooperador'];
 $tramo=$_POST['tramo'];
 $calzada=$_POST['calzada'];
 $abcisa=$_POST['abcisa'];
@@ -83,7 +84,7 @@ $cons="select * from tbl_parte where id_parte=$id_parte";
  }
 
 
-echo $nuevo_regi="insert into tbl_parte values ('','','".$fechahora."','Accidente','0','0','0','".$ced."', '".$antendido."', '".$motivo_atencion."')";
+echo $nuevo_regi="insert into tbl_parte values ('','','".$fechahora."','Accidente','0','0','0','".$ced."', '".$antendido."', '".$motivo_atencion."', ".$radiooperador.")";
 $resultado1= mysql_query($nuevo_regi,$link);
 
 //Se obtiene el numero de parte
@@ -94,7 +95,7 @@ $resul= mysql_query($consulta,$link);
 $row = mysql_fetch_array($resul);
 $id_parte=$row["id_parte"];
 
-$_SESSION[id_parte]=$id_parte;
+$_SESSION["id_parte"]=$id_parte;
 
  $nuevo_reg="insert into tbl_accidente values ('','".$id_parte."','".$via."','".$tramo."','".$calzada."','".$abcisa."','".$punto."','".$nom_tramo."','".$fec_pro."','".$fec_con."','".$fecha_ini."','".$fecha_fin."','".$car_obs."','".$fuego."','".$dano_obra."','".$ch_veh."','".$atrop."','".$cai_ocup."','".$ch_metro."','".$ch_obj."','".$volca."','".$ch_semo."','".$otros_acc."','".$amb."','".$grua."','".$agen_tran."','".$sena."','".$pol_nal."','".$bomberos."','".$def_civil."','".$fiscalia."','".$dir_oper."','".$pol_car."','".$insp_vial."','".$pol_tran."','".$mante."','".$res_oper."','".$otros_serv."','".$ilum."','".$rod."','".$rod_lim."','".$trafico."','".$dano_aut."',
      '".$embri."','".$exc_vel."','".$fallas."','".$falta_pre."','".$no_dis."','".$obs_via."','".$sup_hum."',

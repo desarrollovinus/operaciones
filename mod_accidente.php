@@ -5,6 +5,7 @@ $link=Conectarse();
 $ced=$_SESSION["ced"];
 
 $id_parte=$_POST['id_parte'];
+$radiooperador=$_POST['radiooperador'];
 $via=$_POST['via'];
 $tramo=$_POST['tramo'];
 $calzada=$_POST['calzada'];
@@ -80,7 +81,7 @@ embri='$embri', exc_vel='$exc_vel', fallas='$fallas', falta_pre='$falta_pre', no
 imp_con='$imp_con', mal_est='$mal_est', imp_peat='$imp_peat', contravia='$contravia', sem_via='$sem_via', obras_via='$obras_via',
 huecos_via='$huecos_via', hip_otros='$hip_otros', descripcion='$desc' where id_parte=$id_parte ";
 
-$act_reg2 = "update tbl_parte set atendido='$antendido', id_motivo_atencion='$motivo_atencion' where id_parte=$id_parte ";
+$act_reg2 = "update tbl_parte set atendido='$antendido', id_motivo_atencion='$motivo_atencion', id_radiooperador=$radiooperador where id_parte=$id_parte ";
 
 echo $act_reg2;
 $res= mysql_query($act_reg,$link);

@@ -124,12 +124,36 @@ $id_parte=$_SESSION["id_parte"];
                         </div>
                     </div>
 
-                    <div class="global">
+                    <div class="global" style="display: none;">
                         <div class="titulos">
                             <b>Via</b>
                         </div>
                         <div class="campos">
                             <input type="text" class="sen-class" readonly="readonly" id="via" value="<?php echo $row["via"];?>" name="via">
+                        </div>
+                    </div>
+                    
+                    <div class="global">
+                        <div class="titulos">
+                            <b>Radio operador</b>
+                        </div>
+                        <div class="campos">
+                            <select id="radiooperador" name="radiooperador" class="sen-class" >
+                                <option value=""></option>
+                                <?php
+                                $consulta = "SELECT u.id_usuario, u.us_nombre, u.us_apellido FROM tbl_usuarios AS u WHERE u.radiooperador = 1 ORDER BY u.us_nombre ASC";
+                                $resultado = mysql_query($consulta,$link);
+                                while($radiooperador = mysql_fetch_assoc($resultado)){
+                                    echo "<option value='".$radiooperador["id_usuario"]."'>".utf8_decode($radiooperador["us_nombre"])." ".utf8_encode($radiooperador["us_apellido"])."</option>";
+                                }
+                                ?>
+                            </select>
+                            <script type="text/javascript">
+                                $(document).ready(function(){
+                                $("#radiooperador option[value='<?php echo $row['id_radiooperador'] ?>']").attr("selected", "selected")
+                                    
+                                })
+                            </script>
                         </div>
                     </div>
                     

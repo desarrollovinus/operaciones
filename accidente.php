@@ -118,21 +118,37 @@ $log=$_SESSION["log"];
                             <input type="text" id="nom_tramo" name="nom_tramo" class="sen-class" readonly="readonly" />
                         </div>
                     </div>
-                    <div class="global">
+                    <div class="global" style="display: none">
+                    <!-- <div class="global"> -->
                         <div class="titulos">
                             <b>Via</b>
                         </div>
                         <div class="campos">
                             <input type="text" class="sen-class" readonly="readonly" id="via" name="via">
                         </div>
-                    </div>				
+                    </div>	
+                    <div class="global">
+                        <div class="titulos">
+                            <b>Radio Operador</b>
+                        </div>
+                        <div class="campos">
+                            <select id="radiooperador" name="radiooperador" class="sen-class">
+                                <option value=""></option>
+                                <?php
+                                $consulta = "SELECT u.id_usuario, u.us_nombre, u.us_apellido FROM tbl_usuarios AS u WHERE u.radiooperador = 1 ORDER BY u.us_nombre ASC";
+                                $resultado = mysql_query($consulta,$link);
+                                while($radiooperador = mysql_fetch_assoc($resultado)){
+                                    echo "<option value='".$radiooperador["id_usuario"]."'>".utf8_decode($radiooperador["us_nombre"])." ".utf8_decode($radiooperador["us_apellido"])."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>			
                     <div class="global">
                         <div class="titulos">
                             <b>Abscisa</b>
                         </div>
                         <div class="campos">
-                            <!--<select id="abscisa" name="abscisa" class="sen-class">
-                            </select>-->
                             <input type="text" id="abcisa" name="abcisa" class="sen-class">
                         </div>
                     </div>

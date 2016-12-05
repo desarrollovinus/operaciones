@@ -20,47 +20,137 @@ function Desconectarse(){
 }
 
 function formatear_fecha($fecha){
-        //Si No hay fecha, devuelva vac&iacute;o en vez de 0000-00-00
-        if($fecha == '0000-00-00' || $fecha == '1969-12-31 19:00:00' || !$fecha){
-            return false;
-        }
-        
-        $dia_num = date("j", strtotime($fecha));
-        $dia = date("N", strtotime($fecha));
-        $mes = date("m", strtotime($fecha));
-        $anio_es = date("Y", strtotime($fecha));
+    //Si No hay fecha, devuelva vac&iacute;o en vez de 0000-00-00
+    if($fecha == '0000-00-00' || $fecha == '1969-12-31 19:00:00' || !$fecha){
+        return false;
+    }
+    
+    $dia_num = date("j", strtotime($fecha));
+    $dia = date("N", strtotime($fecha));
+    $mes = date("m", strtotime($fecha));
+    $anio_es = date("Y", strtotime($fecha));
 
-        //Nombres de los d&iacute;as
-        if($dia == "1"){ $dia_es = "Lunes"; }
-        if($dia == "2"){ $dia_es = "Martes"; }
-        if($dia == "3"){ $dia_es = "Miercoles"; }
-        if($dia == "4"){ $dia_es = "Jueves"; }
-        if($dia == "5"){ $dia_es = "Viernes"; }
-        if($dia == "6"){ $dia_es = "Sabado"; }
-        if($dia == "7"){ $dia_es = "Domingo"; }
+    //Nombres de los d&iacute;as
+    if($dia == "1"){ $dia_es = "Lunes"; }
+    if($dia == "2"){ $dia_es = "Martes"; }
+    if($dia == "3"){ $dia_es = "Miercoles"; }
+    if($dia == "4"){ $dia_es = "Jueves"; }
+    if($dia == "5"){ $dia_es = "Viernes"; }
+    if($dia == "6"){ $dia_es = "Sabado"; }
+    if($dia == "7"){ $dia_es = "Domingo"; }
 
-        //Nombres de los meses
-        if($mes == "1"){ $mes_es = "enero"; }
-        if($mes == "2"){ $mes_es = "febrero"; }
-        if($mes == "3"){ $mes_es = "marzo"; }
-        if($mes == "4"){ $mes_es = "abril"; }
-        if($mes == "5"){ $mes_es = "mayo"; }
-        if($mes == "6"){ $mes_es = "junio"; }
-        if($mes == "7"){ $mes_es = "julio"; }
-        if($mes == "8"){ $mes_es = "agosto"; }
-        if($mes == "9"){ $mes_es = "septiembre"; }
-        if($mes == "10"){ $mes_es = "octubre"; }
-        if($mes == "11"){ $mes_es = "noviembre"; }
-        if($mes == "12"){ $mes_es = "diciembre"; } 
+    //Nombres de los meses
+    if($mes == "1"){ $mes_es = "enero"; }
+    if($mes == "2"){ $mes_es = "febrero"; }
+    if($mes == "3"){ $mes_es = "marzo"; }
+    if($mes == "4"){ $mes_es = "abril"; }
+    if($mes == "5"){ $mes_es = "mayo"; }
+    if($mes == "6"){ $mes_es = "junio"; }
+    if($mes == "7"){ $mes_es = "julio"; }
+    if($mes == "8"){ $mes_es = "agosto"; }
+    if($mes == "9"){ $mes_es = "septiembre"; }
+    if($mes == "10"){ $mes_es = "octubre"; }
+    if($mes == "11"){ $mes_es = "noviembre"; }
+    if($mes == "12"){ $mes_es = "diciembre"; } 
 
-        //a&ntilde;o
-        //$anio_es = $anio_es;
+    //a&ntilde;o
+    //$anio_es = $anio_es;
 
-        //Se foramtea la fecha
-        $fecha = /*$dia_es." ".*/$dia_num." de ".$mes_es." de ".$anio_es;
-        
-        return $fecha;
-    }//Fin formato_fecha()
+    //Se foramtea la fecha
+    $fecha = /*$dia_es." ".*/$dia_num." de ".$mes_es." de ".$anio_es;
+    
+    return $fecha;
+}//Fin formato_fecha()
+
+function accidente($id_parte){
+    // Consulta
+    $sql = 
+    "SELECT
+        a.fec_con,
+        a.calzada,
+        a.tramo,
+        a.via,
+        a.abcisa,
+        a.carriles_obs,
+        a.descripcion
+    FROM
+        tbl_accidente AS a
+    WHERE
+        a.id_parte = $id_parte";
+
+    return mysql_fetch_assoc(mysql_query($sql));
+}
+
+function cierre($id_parte){
+    // Consulta
+    $sql =
+    "SELECT
+        c.id_cierre
+    FROM
+        tbl_cierre AS c
+    WHERE
+        c.id_parte = $id_parte";
+
+    // Resultado
+    return mysql_fetch_array(mysql_query($sql));
+}
+
+function emergencia($id_parte){
+    // Consulta
+    $sql =
+    "SELECT
+        e.h_ini_emer AS fec_con,
+        e.calzada,
+        e.tramo,
+        e.via,
+        e.abcisa
+    FROM
+        tbl_emergencias AS e
+    WHERE
+        e.id_parte = $id_parte";
+
+    // Resultado
+    return mysql_fetch_assoc(mysql_query($sql));
+}
+
+function incidente($id_parte){
+    // Consulta
+    $sql = 
+    "SELECT
+        i.h_ini_inc fec_con,
+        i.calzada,
+        i.tramo,
+        i.via,
+        i.abcisa,
+        i.us_nombre,
+        i.us_ced,
+        i.us_ced,
+        i.us_tel,
+        i.us_tipo_veh,
+        i.us_placa_veh,
+        i.us_color_veh,
+        i.us_marca_veh,
+        i.us_serv_veh
+    FROM
+        tbl_incidente AS i
+    WHERE
+        i.id_parte = $id_parte";
+
+    // Resultado
+    return mysql_fetch_assoc(mysql_query($sql));
+}
+
+function involucrados($id_parte){
+    $sql =
+    "SELECT
+        *
+    FROM
+        tbl_involucrados AS i
+    WHERE
+        i.id_parte = $id_parte";
+
+    return mysql_query($sql,Conectarse());
+}
 
 function guardar(){
     $tabla=tbl_bitacora;
@@ -79,6 +169,61 @@ function guardar(){
     $exequery=mysql_query($query) or die(mysql_error());
     echo "guardo con exito";
     return true;
+}
+
+/**
+ * Cuenta la cantidad de involucrados
+ * * Reporte Matriz 
+ * @param  [int] $id_parte [Consecutivo del parte]
+ * @param  [string] $tipo_veh [Tipo de vehículo]
+ * @return [int]           [Cantidad de involucrados]
+ */
+function involucrados_contar($id_parte, $tipo_veh = null){
+    $condicion = "";
+    $group = "";
+
+    // Si trae tipo de vehículo
+    if ($tipo_veh) {
+        $condicion = "AND i.tipo_veh = '$tipo_veh'";
+        $group = "GROUP BY i.tipo_veh";
+    } // if
+
+    $sql =
+    "SELECT
+        COUNT(i.tipo_veh) cantidad,
+        i.tipo_veh
+    FROM
+        tbl_involucrados AS i
+    WHERE
+        i.id_parte = $id_parte
+        $condicion
+        $group";
+
+    $resultado = mysql_fetch_assoc(mysql_query($sql,Conectarse()));
+
+    if ($resultado["cantidad"]) {
+        return $resultado["cantidad"];
+    } else {
+        return 0;
+    }
+}
+
+function otros($id_parte){
+    // Consulta
+    $sql = 
+    "SELECT
+            o.h_ini_otros AS fec_con,
+            o.calzada,
+            o.tramo,
+            o.via,
+            o.abcisa
+        FROM
+            tbl_otros AS o
+        WHERE
+            o.id_parte = $id_parte";
+
+    // Resultado
+    return mysql_fetch_assoc(mysql_query($sql));
 }
 
 function listar24(){
