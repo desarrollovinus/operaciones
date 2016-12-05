@@ -455,9 +455,6 @@ function numero_victimas_ciclista($id_parte){
     return $rowmuer6["0"];
 }
 
-
-
-
 function procesar_foto($ruta, $directorio, $nombre){
     // return  "Ruta: ".$ruta."<br>Directorio: ".$directorio."<br>Nombre: ".$nombre;
 

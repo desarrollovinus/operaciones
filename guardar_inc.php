@@ -7,6 +7,7 @@ $ced=$_SESSION["ced"];
 
 $fechahora=$_POST['fecha'];
 $id_parte=$_POST['id_parte'];
+$radiooperador=$_POST['radiooperador'];
 $via=$_POST['via'];
 $tramo=$_POST['tramo'];
 $calzada=$_POST['calzada'];
@@ -42,7 +43,7 @@ $h_fin_inc=$_POST['h_fin_inc'];
 
 
 
-$nuevo_regi="insert into tbl_parte values ('','','".$fechahora."','Incidente','0','0','0','".$ced."', '".$antendido."', '".$motivo_atencion."')";
+$nuevo_regi="insert into tbl_parte values ('','','".$fechahora."','Incidente','0','0','0','".$ced."', '".$antendido."', '".$motivo_atencion."', ".$radiooperador.")";
 $resultado1= mysql_query($nuevo_regi,$link);
 
 //Se lee el registro que se acaba de insertar

@@ -9,6 +9,7 @@ $id_parte=$_POST['id_parte'];
 $via=$_POST['via'];
 $tramo=$_POST['tramo'];
 $calzada=$_POST['calzada'];
+$radiooperador=$_POST['radiooperador'];
 $abcisa=$_POST['abcisa'];
 $nom_inv=$_POST['nom_inv'];
 $color_veh=$_POST['color_veh'];
@@ -44,7 +45,7 @@ $act_reg = "update tbl_incidente set via='$via', tramo='$tramo', calzada='$calza
 us_color_veh='$color_veh', us_marca_veh='$marca_veh', us_serv_veh='$servicio_veh', us_tipo_veh='$tipo_veh', acc_trabajo='$acc_trab', per_muerta_via='$per_muerta', prim_aux='$pri_aux', veh_aban='$veh_abandonado', veh_inmov='$veh_inmov',
 escom_via='$escom_via', obs_via='$obs_via', sem_muerto='$sem_muerto', veh_varado='$veh_varado', otros='$serv_inc', tipo_inc='$tipo_inc', descrip='$desc_inc' where id_parte=$id_parte ";
 
-$act_reg2 = "update tbl_parte set atendido='$antendido', id_motivo_atencion='$motivo_atencion' where id_parte=$id_parte ";
+$act_reg2 = "update tbl_parte set atendido='$antendido', id_motivo_atencion='$motivo_atencion', id_radiooperador=$radiooperador where id_parte=$id_parte ";
 
 echo $act_reg2;
 

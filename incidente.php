@@ -279,34 +279,48 @@ if ($log==0){
                         </div>
 </div>
                    </div>
-                        <div class="desc">
-                            <div class="titulo_inv"><b>TIPO DE INCIDENTE</b></div>
-                            <div class="titulo_inv"><select id="tipo_inc" name="tipo_inc" class="sen-class2">
-                                <optgroup label="Seleccione">
-                                    <option value=""></option>
-                                    <option value="ACCIDENTE DE TRABAJO">ACCIDENTE DE TRABAJO</option>
-                                    <option value="DERRAME DE COMBUSTIBLE">DERRAME DE COMBUSTIBLE</option>
-                                    <option value="DERRAME DE MATERIAL DE PLAYA">DERRAME DE MATERIAL DE PLAYA</option>
-                                    <option value="DERRAME SUSTANCIAS EN LA VIA">DERRAME SUSTANCIAS EN LA VIA</option>
-                                    <option value="DESLIZAMIENTO DE TIERRA">DESLIZAMIENTO DE TIERRA</option>
-                                    <option value="EMERGENCIA">EMERGENCIA</option>
-                                    <option value="MANIFESTACION PUBLICA">MANIFESTACIÓN PÚBLICA</option>
-                                    <option value="MUERTO">MUERTO</option>
-                                    <option value="OBSTACULO EN LA VIA">OBSTÁCULO EN LA VÍA</option>
-                                    <option value="PERDIDA DE CARGA EN LA VIA">PERDIDA DE CARGA EN LA VIA</option>
-                                    <option value="PRIMEROS AUXILIOS Y/O TRASLADO A CENTRO ASISTENCIAL">PRIMEROS AUXILIOS Y/O TRASLADO A CENTRO ASISTENCIAL</option>
-                                    <option value="SEMOVIENTE MUERTO">SEMOVIENTE MUERTO</option>
-                                    <option value="SIN INFORMACION">SIN INFORMACIÓN</option>
-                                    <option value="VEHICULO ABANDONADO">VEHÍCULO ABANDONADO</option>
-                                    <option value="VEHICULO INMOVILIZADO">VEHÍCULO INMOVILIZADO</option>
-                                    <option value="VEHICULO VARADO">VEHÍCULO VARADO</option>
-                                    <option value="OTROS">OTROS</option>
 
-                                </optgroup>
-                            </select></div>
+                   <div class="desc">
+                    <div class="titulo_inv"><b>TIPO DE INCIDENTE Y RADIO OPERADOR</b></div>
+                    <div class="titulo_inv">
+                        <select id="tipo_inc" name="tipo_inc" class="sen-class2">
+                            <optgroup label="Seleccione">
+                                <option value=""></option>
+                                <option value="ACCIDENTE DE TRABAJO">ACCIDENTE DE TRABAJO</option>
+                                <option value="DERRAME DE COMBUSTIBLE">DERRAME DE COMBUSTIBLE</option>
+                                <option value="DERRAME DE MATERIAL DE PLAYA">DERRAME DE MATERIAL DE PLAYA</option>
+                                <option value="DERRAME SUSTANCIAS EN LA VIA">DERRAME SUSTANCIAS EN LA VIA</option>
+                                <option value="DESLIZAMIENTO DE TIERRA">DESLIZAMIENTO DE TIERRA</option>
+                                <option value="EMERGENCIA">EMERGENCIA</option>
+                                <option value="MANIFESTACION PUBLICA">MANIFESTACIÓN PÚBLICA</option>
+                                <option value="MUERTO">MUERTO</option>
+                                <option value="OBSTACULO EN LA VIA">OBSTÁCULO EN LA VÍA</option>
+                                <option value="PERDIDA DE CARGA EN LA VIA">PERDIDA DE CARGA EN LA VIA</option>
+                                <option value="PRIMEROS AUXILIOS Y/O TRASLADO A CENTRO ASISTENCIAL">PRIMEROS AUXILIOS Y/O TRASLADO A CENTRO ASISTENCIAL</option>
+                                <option value="SEMOVIENTE MUERTO">SEMOVIENTE MUERTO</option>
+                                <option value="SIN INFORMACION">SIN INFORMACIÓN</option>
+                                <option value="VEHICULO ABANDONADO">VEHÍCULO ABANDONADO</option>
+                                <option value="VEHICULO INMOVILIZADO">VEHÍCULO INMOVILIZADO</option>
+                                <option value="VEHICULO VARADO">VEHÍCULO VARADO</option>
+                                <option value="OTROS">OTROS</option>
+                            </optgroup>
+                        </select>
+
+                        <select id="radiooperador" name="radiooperador" class="sen-class2">
+                            <option value=""></option>
+                            <?php
+                            $consulta = "SELECT u.id_usuario, u.us_nombre, u.us_apellido FROM tbl_usuarios AS u WHERE u.radiooperador = 1 ORDER BY u.us_nombre ASC";
+                            $resultado = mysql_query($consulta,$link);
+                            while($radiooperador = mysql_fetch_assoc($resultado)){
+                                echo "<option value='".$radiooperador["id_usuario"]."'>".utf8_encode($radiooperador["us_nombre"])." ".utf8_encode($radiooperador["us_apellido"])."</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                        
 
 
-               </div>
 
                     
                         <div class="desc1">
