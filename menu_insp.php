@@ -106,7 +106,7 @@ $link = Conectarse();
                     <input type="button" name="acc" id="acc" value="Accidente" onclick="location.href='accidente.php'" onMouseOver=" mostrar('Asi_es_Municipio')" class="botones1">
                     <input type="button" name="inc" id="inc" value="Incidente" onclick="location.href='incidente.php'" class="botones1">
                     <input type="button" name="eme" id="eme" value="Emergencia" onclick="location.href='emergencias.php'" class="botones1">
-                    <input type="button" name="otro" id="otro" value="Otro" onclick="location.href='otros.php'" class="botones1">
+                    <!-- <input type="button" name="otro" id="otro" value="Otro" onclick="location.href='otros.php'" class="botones1"> -->
                     <input type="button" name="cierre" id="cierre" value="Cierre de Via" onclick="location.href='cierre_via.php'" class="botones1">
                     <input type="button" name="ambulancia" id="ambulancia" value="Ambulancia" onclick="location.href='ambulancia.php'" class="botones1">
                     <input type="button" name="grua" id="grua" value="Grua" onclick="location.href='grua.php'" class="botones1">
